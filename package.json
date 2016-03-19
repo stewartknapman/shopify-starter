@@ -19,5 +19,13 @@
   "homepage": "https://github.com/stewartknapman/shopify-starter#readme",
   "dependencies": {
     "inside-scss": "0.0.4"
+  },
+  "devDependencies": {
+    "autoprefixer": "^6.3.3",
+    "browserify": "^13.0.0",
+    "parallelshell": "^2.0.0",
+    "postcss-cli": "^2.5.1",
+    "uglify-js": "^2.6.2",
+    "watch": "^0.17.1"
   }
 }

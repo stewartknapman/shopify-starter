@@ -15,3 +15,8 @@ We recommend using Shopify's Theme Kit rather than the Theme Gem. This is what S
 [http://themekit.cat/install/](http://themekit.cat/install/)
 
 ### Commands
+
+
+## TODO
+- Setup build tasks
+- Settings json concat
