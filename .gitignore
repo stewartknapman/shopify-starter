@@ -1,3 +1,4 @@
 *.zip
+config.yml
 theme/config.yml
 node_modules
