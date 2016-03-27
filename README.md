@@ -19,4 +19,4 @@ We recommend using Shopify's Theme Kit rather than the Theme Gem. This is what S
 
 ## TODO
 - Setup build tasks
-- Settings json concat
+- Settings json concat (with liquid)

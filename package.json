@@ -18,7 +18,7 @@
   },
   "homepage": "https://github.com/stewartknapman/shopify-starter#readme",
   "dependencies": {
-    "inside-scss": "0.0.4"
+    "inside-scss": "^0.0.5"
   },
   "devDependencies": {
     "autoprefixer": "^6.3.3",
