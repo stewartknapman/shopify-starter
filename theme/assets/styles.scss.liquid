@@ -1,0 +1,1230 @@
+/*
+  Globals & Includes
+  ---
+*/
+
+// Include css classes in output.
+// Set to false if you intend on just using mixins and setting your own classes.
+$include_classes: true !default;
+
+// Include fluid type settings: http://trentwalton.com/2012/06/19/fluid-type/
+// This will increase the font size as the screen size increases.
+// Set to false if you want to keep a consistent font size across all screen sizes.
+$include_fluid_type: true !default;
+
+// Include pretty underlines: https://medium.com/designing-medium/crafting-link-underlines-on-medium-7c03a9274f9
+// This will stop chromes underlines looking super chunky at larger font sizes.
+$include_pretty_underlines: true !default;
+
+// Include modules.
+// Set to false if you don't need the extended modules.
+$include_grid:    true !default;
+$include_type:    true !default;
+$include_lists:   true !default;
+$include_forms:   true !default;
+$include_buttons: true !default;
+$include_tables:  true !default;
+$include_hero:    true !default;
+$include_code:    true !default;
+$include_embed:   true !default;
+$include_figure_link_hover: true !default;
+
+// Include breakpoint sizes for js: https://adactio.com/journal/5429
+$include_breakpoint_sizes: true !default;
+
+// Include themes.
+// Set to true if you want to include a theme.
+$include_theme_wireframe: false !default;
+
+/*
+  Breakpoints
+  ---
+  
+  xs is implied by whatever is less than sm
+*/
+$breakpoint_sm:     37.5em !default;  // 600px @ 16px
+$breakpoint_md:     60em !default;    // 960px @ 16px
+$breakpoint_lg:     75em !default;    // 1200px @ 16px
+$breakpoint_xl:     93.75em !default; // 1500px @ 16px
+
+// The max-height in which a table is no longer collapsed for mobile
+$breakpoint_tables: $breakpoint_sm !default;
+
+$breakpoint_sizes: (xs false) (sm $breakpoint_sm) (md $breakpoint_md) (lg $breakpoint_lg) (xl $breakpoint_xl) !default;
+/*
+  [Breaks in < 3.3]
+  $breakpoint_sizes: (xs:false, sm:$breakpoint_sm, md:$breakpoint_md, lg:$breakpoint_lg, xl:$breakpoint_xl) !default;
+*/
+
+/*
+  Type
+  ---
+  
+  Target / Context:
+  Foundtion sets the body font size at 100% which is usually 16px
+  A standard line height of 1.5ems on the body (@16px) is 24px
+*/
+
+// Base sizes and heights
+$line_height_base:  1.5 !default;
+$line_height_xxl:   1.1 !default;
+$line_height_xl:    1.2 !default;
+$line_height_lg:    1.3 !default;
+$line_height_md:    1.4 !default;
+$line_height_sm:    $line_height_base !default;
+$line_height_xs:    1.6 !default;
+
+$font_size_base:  1em !default;
+
+// Fluid type sizes
+$fluid_type_sm:   1.1em !default;
+$fluid_type_md:   1.2em !default;
+$fluid_type_lg:   1.3em !default;
+$fluid_type_xl:   1.4em !default;
+
+$max_reading_length: 40em !default;
+
+// Heading and component sizes
+$font_size_xxl:   2.5em !default;             // ~ 40px
+$font_size_xl:    2em !default;               // ~ 32px
+$font_size_lg:    1.5em !default;             // ~ 24px and used inside hero objects
+$font_size_md:    1.25em !default;            // ~ 20px
+$font_size_sm:    $font_size_base !default;   // ~ 16px
+$font_size_xs:    0.8125em !default;          // ~ 13px
+$font_size_forms: $font_size_xs !default;
+
+// Font families
+$font_family_serif:      Georgia, "Times New Roman", Times, serif !default;
+$font_family_sans_serif: "Helvetica Neue", Helvetica, Arial, sans-serif !default;
+$font_family_monospaced: Consolas, "Lucida Console", Monaco, monospace !default;
+
+$font_family_body:      $font_family_sans_serif !default;
+$font_family_headings:  $font_family_sans_serif !default;
+$font_family_code:      $font_family_monospaced !default;
+$font_family_pullquote: $font_family_headings !default;
+$font_family_button:    $font_family_body !default;
+
+// Font weights
+$font_weight_base:      300 !default;
+$font_weight_bold:      600 !default;
+$font_weight_headings:  500 !default;
+$font_weight_pullquote: 300 !default;
+$font_weight_button:    $font_weight_base !default;
+
+// Font styles
+$font_style_pullquote: italic !default;
+
+// Underline thickness
+$underline_weight: 2px !default;
+$underline_position: 1em !default;
+
+/*
+  Grids
+  ---
+*/
+
+$container_width_fluid: 100% !default;
+$container_width_xs: 95% !default;
+$container_width_sm: 95% !default;
+$container_width_md: 90% !default;
+$container_width_lg: 85% !default;
+$container_width_xl: 80% !default;
+
+$container_sizes: (xs $container_width_xs) (sm $container_width_sm) (md $container_width_md) (lg $container_width_lg) (xl $container_width_xl) !default;
+
+// Set to a value like 55em to constrain the max width of a container
+$container_max_width: false !default;
+
+$gutter_horizontal: 1rem !default;
+$gutter_vertical: 1em !default;
+
+$grid_gutter_xs: 0.25em !default;
+$grid_gutter_sm: 0.5em !default;
+$grid_gutter_md: 0.75em !default;
+$grid_gutter_lg: $gutter_vertical !default;
+$grid_gutter_xl: $grid_gutter_lg !default;
+
+$grid_gutter_sizes: (xs $grid_gutter_xs) (sm $grid_gutter_sm) (md $grid_gutter_md) (lg $grid_gutter_lg) (xl $grid_gutter_xl) !default;
+
+$col_sizes: (5 5%) (10 10%) (15 15%) (20 20%) (25 25%) (30 30%) (40 40%) (50 50%) (60 60%) (70 70%) (75 75%) (80 80%) (85 85%) (90 90%) (95 95%) (100 100%) (quarter 25%) (half 50%) (three-quarters 75%) (full 100%) (one-third 33.333%) (one-sixth 16.666%) (two-thirds 66.666%) !default;
+/*
+  [Breaks in < 3.3]
+$col_sizes: (5:5%, 10:10%, 15:15%, 20:20%, 25:25%, 30:30%, 40:40%, 50:50%, 60:60%, 70:70%, 75:75%, 80:80%, 85:85%, 90:90%, 95:95%, 100:100%, quarter:25%, half:50%, three-quarters:75%, full:100%, one-third:33.333%, two-thirds:66.666%) !default;
+*/
+
+/*
+  Colours
+  ---
+*/
+
+$highlight_color: #00b8e3 !default;
+
+$text_color: #333 !default;
+$link_color: inherit !default;
+$link_color_hover: $highlight_color !default;
+$selection_color: #000 !default;
+$selection_bg_color: rgba($highlight_color, .6) !default;
+
+$background_color: #fff !default;
+
+// tables
+$background_color_table: #f9f9f9 !default;
+$background_hover_color_table: darken($background_color_table, 5%) !default;
+
+// buttons
+$text_color_button: $text_color !default;
+$text_hover_color_button: $text_color !default;
+$background_color_button: $background_color !default;
+$background_hover_color_button: darken($background_color_button, 5%) !default;
+
+$background_color_button_primary: $highlight_color !default;
+$text_color_button_primary: if(lightness($background_color_button_primary) > 55%, $text_color, lighten($background_color, 45%)) !default;
+
+/*
+  Borders
+  ---
+*/
+
+$border_color: #eee !default;
+$border_size: 1px !default;
+$border_style: solid !default;
+$border_radius: 3px !default;
+
+// tables
+$border_color_table: $border_color !default;
+$border_size_table: $border_size !default;
+$border_size_table_lg: 2px !default;
+$border_style_table: $border_style !default;
+
+// inputs
+$border_color_input: $border_color !default;
+$border_size_input: $border_size !default;
+$border_style_input: $border_style !default;
+$border_radius_input: $border_radius !default;
+
+// buttons
+$border_color_button: $border_color !default;
+$border_color_hover_button: $border_color !default;
+$border_size_button: $border_size !default;
+$border_style_button: $border_style !default;
+$border_radius_button: $border_radius !default;
+
+// blockquotes
+$border_color_blockquote: $border_color !default;
+$border_size_blockquote: $border_size * 4 !default;
+$border_style_blockquote: $border_style !default;
+
+
+/*
+  Misc
+  ---
+*/
+
+// Transition durations.
+// These are here as a nicety for things like link hovers and font size increases.
+// If you don't want the transitions then set them to `false`
+$transition_duration_base:      .3s !default;
+$transition_duration_fontsize:  $transition_duration_base !default;
+$transition_duration_hover:     $transition_duration_base !default;@mixin clearfix {
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}/*
+  Containers
+*/
+
+@mixin container-fluid {
+  overflow: hidden;
+  margin: 0 auto;
+  width: $container_width_fluid;
+}
+
+@mixin build-container ($container_key, $container_size, $breakpoint_key, $breakpoint) {
+  @if ($container_key == $breakpoint_key) {
+    @if ($breakpoint) {
+      @media (min-width: $breakpoint) {
+        width: $container_size
+      }
+    } @else {
+      width: $container_size
+    }
+  }
+}
+
+@mixin build-containers ($breakpoint_key, $breakpoint) {
+  @each $container in $container_sizes {
+    @include build-container (nth($container, 1), nth($container, 2), $breakpoint_key, $breakpoint);
+  }
+}
+
+@mixin container {
+  margin: 0 auto;
+  @if ($container_max_width) {
+    max-width: $container_max_width;
+  }
+  @each $breakpoint in $breakpoint_sizes {
+    @include build-containers (nth($breakpoint, 1), nth($breakpoint, 2));
+  }
+}
+
+/* Grid Rows */
+@mixin build-grid-row ($grid_gutter_key, $grid_gutter_size, $breakpoint_key, $breakpoint) {
+  @if ($grid_gutter_key == $breakpoint_key) {
+    @if ($breakpoint) {
+      @media (min-width: $breakpoint) {
+        margin: auto ($grid_gutter_size / 2) * -1;
+      }
+    } @else {
+      margin: auto ($grid_gutter_size / 2) * -1;
+    }
+  }
+}
+  
+@mixin build-grid-rows ($breakpoint_key, $breakpoint) {
+  @each $grid_gutter in $grid_gutter_sizes {
+    @include build-grid-row (nth($grid_gutter, 1), nth($grid_gutter, 2), $breakpoint_key, $breakpoint);
+  }
+}
+
+@mixin grid-row {
+  @include clearfix;
+  @each $breakpoint in $breakpoint_sizes {
+    @include build-grid-rows (nth($breakpoint, 1), nth($breakpoint, 2));
+  }
+}
+
+/* Grid cols */
+@mixin build-grid-col-gutter ($grid_gutter_key, $grid_gutter_size, $breakpoint_key, $breakpoint) {
+  @if ($grid_gutter_key == $breakpoint_key) {
+    @if ($breakpoint) {
+      @media (min-width: $breakpoint) {
+        padding-left: ($grid_gutter_size / 2);
+        padding-right: ($grid_gutter_size / 2);
+      }
+    } @else {
+      padding-left: ($grid_gutter_size / 2);
+      padding-right: ($grid_gutter_size / 2);
+    }
+  }
+}
+  
+@mixin build-grid-col-gutters ($breakpoint_key, $breakpoint) {
+  @each $grid_gutter in $grid_gutter_sizes {
+    @include build-grid-col-gutter (nth($grid_gutter, 1), nth($grid_gutter, 2), $breakpoint_key, $breakpoint);
+  }
+}
+
+@mixin grid-col-base {
+  width: 100%;
+  @each $breakpoint in $breakpoint_sizes {
+    @include build-grid-col-gutters (nth($breakpoint, 1), nth($breakpoint, 2));
+  }
+}
+
+@mixin grid-col {
+  float: left;
+  @include grid-col-base;
+}
+
+@mixin grid-col-rev {
+  float: right;
+  @include grid-col-base;
+}
+
+@mixin grid-col-size ($size, $breakpoint: false) {
+  @if $breakpoint {
+    @media (min-width: $breakpoint) {
+      width: $size;
+    }
+  } @else {
+    width: $size;
+  }
+}
+
+@mixin grid-col-offset ($offset, $breakpoint: false, $direction: left) {
+  @if $breakpoint {
+    @media (min-width: $breakpoint) {
+      margin-#{$direction}: $offset;
+    }
+  } @else {
+    margin-#{$direction}: $offset;
+  }
+}
+
+@mixin build-grid-col ($col_key, $col_size, $breakpoint_key, $breakpoint) {
+  .grid-col.grid-col-offset-#{$col_key}-#{$breakpoint_key} {
+    @include grid-col-offset($col_size, $breakpoint, left);
+  }
+  
+  .grid-col-rev.grid-col-offset-#{$col_key}-#{$breakpoint_key} {
+    @include grid-col-offset($col_size, $breakpoint, right);
+  }
+  
+  .grid-col-#{$col_key}-#{$breakpoint_key} {
+    @include grid-col-size($col_size, $breakpoint);
+  }
+}
+
+@mixin build-grid-cols ($breakpoint_key, $breakpoint) {
+  @each $col in $col_sizes {
+    @include build-grid-col (nth($col, 1), nth($col, 2), $breakpoint_key, $breakpoint);
+  }
+}
+/*
+  [Breaks in < 3.3]
+@mixin build-grid-cols ($breakpoint_key, $breakpoint) {
+  @each $col_key, $col_size in $col_sizes {
+    @include build-grid-col ($col_key, $col_size, $breakpoint_key, $breakpoint);
+  }
+}
+*/// Sizes
+@mixin font-size-xs {
+  font-size: $font_size_xs;
+  line-height: $line_height_xs;
+}
+
+@mixin font-size-sm {
+  font-size: $font_size_sm;
+  line-height: $line_height_sm;
+}
+
+@mixin font-size-md {
+  font-size: $font_size_md;
+  line-height: $line_height_md;
+}
+
+@mixin font-size-lg {
+  font-size: $font_size_lg;
+  line-height: $line_height_lg;
+}
+
+@mixin font-size-xl {
+  font-size: $font_size_xl;
+  line-height: $line_height_xl;
+}
+
+@mixin font-size-xxl {
+  font-size: $font_size_xxl;
+  line-height: $line_height_xxl;
+}
+
+// Styles
+@mixin heading-style {
+  font-family: $font_family_headings;
+  font-weight: $font_weight_headings;
+}
+
+@mixin reading-length {
+  max-width: $max_reading_length;
+}
+
+// Alignment
+@mixin text-align($alignment, $breakpoint: false) {
+  @if $breakpoint {
+    @media (min-width: $breakpoint) {
+      text-align: $alignment;
+    }
+  } @else {
+    text-align: $alignment;
+  }
+}
+
+@mixin pull-quote {
+  border-left: none;
+  padding-left: 0;
+  @include font-size-lg;
+  font-family: $font_family_pullquote;
+  font-weight: $font_weight_pullquote;
+  font-style: $font_style_pullquote;
+}@mixin links ($color, $color_hover: false) {
+  @if ($color_hover == false) {
+    $color_hover: $color;
+  }
+  
+  a {
+    color: $color;
+    @if $include_pretty_underlines {
+      @include pretty-underlines($color);
+    }
+  }
+  a:hover,
+  a:active {
+    color: $color_hover;
+    @if $include_pretty_underlines {
+      @include pretty-underlines-color($color_hover);
+    }
+  }
+  a:focus {
+    outline: none;
+    color: $selection_color;
+    background: rgba($selection_bg_color, 0.3);
+    box-shadow: 0 0 0 0.2em rgba($selection_bg_color, 0.3);
+    text-shadow: none;
+  }
+  figure > a:focus {
+    outline-color: rgba($selection_bg_color, 0.3);
+  }
+  
+  h1 a,
+  h2 a,
+  h3 a,
+  h4 a,
+  h5 a,
+  h6 a {
+    text-decoration: none;
+    color: inherit;
+    @if $include_pretty_underlines {
+      background: none;
+    }
+  }
+  h1 a:hover,
+  h1 a:active,
+  h2 a:hover,
+  h2 a:active,
+  h3 a:hover,
+  h3 a:active,
+  h4 a:hover,
+  h4 a:active,
+  h5 a:hover,
+  h5 a:active,
+  h6 a:hover,
+  h6 a:active {
+    @if $include_pretty_underlines {
+      background: none;
+    }
+  }
+}
+
+@mixin pretty-underlines ($color) {
+  /*
+    TODO: make underline increase in thickness for large font sizes
+      - prob. requires some sort of calculation
+  */
+  
+  @include pretty-underlines-color($color);
+  text-decoration: none;
+  background-repeat: repeat-x;
+  background-position: 0 $underline_position;
+  background-size: $underline_weight $underline_weight;
+}
+
+@mixin pretty-underlines-color ($color) {
+  @if ($color == 'inherit') {
+    $color: $text_color;
+  }
+  background-image: linear-gradient(to bottom, transparent 50%, $color 50%);
+}@mixin list-unstyled {
+  padding: 0;
+  list-style: none;
+}
+
+@mixin list-inline {
+  @include list-unstyled;
+  li {
+    display: inline-block;
+    vertical-align: middle;
+  }
+}
+
+@mixin dl-list-unstyled {
+  dd {
+    margin-left: 0;
+  }
+}
+
+@mixin dl-list-inline {
+  @include clearfix;
+  dt {
+    float: left;
+    margin-right: ($gutter_vertical / 2);
+  }
+}@mixin form-group {
+  margin-bottom: $gutter_horizontal / 1.5;
+}@mixin button-base {
+  display: inline-block;
+  padding: ($gutter_horizontal / 4) ($gutter_vertical / 2);
+  
+  font-family: $font_family_button;
+  font-weight: $font_weight_button;
+  font-size: $font_size_base;
+  line-height: $line_height_base;
+  color: $text_color_button;
+  text-decoration: none;
+  vertical-align: middle;
+  
+  @if ($include_pretty_underlines) {
+    background: none;
+  }
+  outline: none;
+  background-color: $background_color_button;
+  border: $border_color_button $border_size_button $border_style_button;
+  border-radius: $border_radius_button;
+  transition: $transition_duration_hover;
+  
+  &:hover,
+  &:active {
+    color: $text_hover_color_button;
+    @if ($include_pretty_underlines) {
+      background: none;
+    }
+    background-color: $background_hover_color_button;
+    border-color: $border_color_hover_button;
+    cursor: pointer;
+  }
+}
+
+@mixin button-style ($color, $background_color: $background_color_button, $border_color: false, $color_hover: false, $background_color_hover: false, $border_color_hover: false) {
+  @if ($border_color == false) {
+    $border_color: darken($background_color, 10%);
+  }
+  @if ($color_hover == false) {
+    $color_hover: $color;
+  }
+  @if ($background_color_hover == false) {
+    $background_color_hover: darken($background_color, 12%);
+  }
+  @if ($border_color_hover == false) {
+    $border_color_hover: $border_color;
+  }
+  
+  color: $color;
+  background-color: $background_color;
+  border-color: $border_color;
+  
+  &:hover,
+  &:active {
+    color: $color_hover;
+    background-color: $background_color_hover;
+    border-color: $border_color_hover;
+  }
+}@mixin responsive-table {
+  @media (min-width: $breakpoint_tables) {
+    td, th {
+      padding: ($gutter_horizontal / 2) ($gutter_vertical / 2);
+    }
+  }
+  
+  @media (max-width: $breakpoint_tables) {
+    table {
+      display: block;
+    }
+    
+    thead {
+      display: none;
+    }
+    
+    tbody, tfoot, tr, td, th {
+      display: block;
+    }
+  
+    tr {
+      padding: ($gutter_horizontal / 2) ($gutter_vertical / 2);
+    }
+    
+    td:before {
+      content: attr(title);
+      display: inline-block;
+      margin-right: 2%;
+      font-weight: $font_weight_bold;
+    }
+  }
+}
+
+@mixin table-stripes {
+  tbody tr{
+    transition: $transition_duration_hover;
+    &:nth-child(odd) {
+      background-color: $background_color_table;
+    }
+    &:hover {
+      background-color: $background_hover_color_table;
+    }
+  }
+}
+
+@mixin table-borders-horizontal {
+  thead,
+  tfoot {
+    border-top: $border_color_table $border_style_table $border_size_table_lg;
+    border-bottom: $border_color_table $border_style_table $border_size_table_lg;
+  }
+  
+  tbody tr {
+    border-bottom: $border_color_table $border_style_table $border_size_table;
+    &:last-child {
+      border-bottom: none;
+    }
+    @media (max-width: $breakpoint_tables) {
+      &:first-child {
+        border-top: $border_color_table $border_style_table $border_size_table_lg;
+      }
+    }
+  }
+}
+
+@mixin table-borders-vertical {
+  @media (min-width: $breakpoint_tables) {
+    td, th {
+      border-left: $border_color_table $border_style_table $border_size_table;
+      &:last-child {
+        border-right: $border_color_table $border_style_table $border_size_table;
+      }
+    }
+  }
+  
+  @media (max-width: $breakpoint_tables) {
+    tr {
+      border-left: $border_color_table $border_style_table $border_size_table;
+      border-right: $border_color_table $border_style_table $border_size_table;
+    }
+  }
+}
+
+@mixin table-borders {
+  @include table-borders-horizontal;
+  @include table-borders-vertical;
+}@mixin hero-block {
+  @include clearfix;
+  padding-top: ($gutter_horizontal * 2);
+  padding-bottom: $gutter_horizontal;
+  
+  font-size: $font_size_md;      
+  @media (min-width: $breakpoint_sm) {
+    font-size: $font_size_lg;
+  }
+  @media (min-width: $breakpoint_md) {
+    font-size: $font_size_xl;
+  }
+  @media (min-width: $breakpoint_lg) {
+    font-size: $font_size_xxl;
+  }
+  
+  // Should roughly match stndard p on small screens
+  // and on larger screen be big but not too big
+  p {
+    font-size: $font_size_xs;
+  }
+}@mixin embed {
+  position: relative;
+  display: block;
+  height: 0;
+  width: 100%;
+  padding: 0;
+  overflow: hidden;
+}
+
+@mixin embed-16x9 {
+  padding-bottom: 56.25%;
+}
+
+@mixin embed-4x3 {
+  padding-bottom: 75%;
+}
+
+@mixin embed-item {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}/* Block level elements and resets */
+
+html {
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+html, body {
+  height: 100%;
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+figure,
+ol,
+ul,
+dl,
+hr,
+th,
+td {
+  padding: 0;
+  margin: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+figure,
+ol,
+ul,
+dl {
+  margin-bottom: $gutter_horizontal;
+}
+
+img {
+  max-width: 100%;
+}
+
+hr {
+  border: none;
+  border-bottom: $border_color $border_size $border_style;
+  margin-top: $gutter_horizontal;
+  margin-bottom: $gutter_horizontal;
+}
+
+::selection {
+  color: $selection_color;
+  background: $selection_bg_color;
+  text-shadow: none;
+}html {
+  @if $include_fluid_type {
+    @media (min-width: $breakpoint_sm) {
+      font-size: $fluid_type_sm;
+    }
+    @media (min-width: $breakpoint_md) {
+      font-size: $fluid_type_md;
+    }
+    @media (min-width: $breakpoint_lg) {
+      font-size: $fluid_type_lg;
+    }
+    @media (min-width: $breakpoint_xl) {
+      font-size: $fluid_type_xl;
+    }
+  }
+}
+
+body {
+  font-size: $font_size_base;
+  line-height: $line_height_base;
+  font-family: $font_family_body;
+  font-weight: $font_weight_base;
+  color: $text_color;
+  
+  @if $transition_duration_fontsize {
+    transition: font-size $transition_duration_fontsize;
+  }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  @include heading-style;
+}
+
+h1 {
+  @include font-size-xxl;
+}
+h2 {
+  @include font-size-xl;
+}
+h3 {
+  @include font-size-lg;
+}
+h4 {
+  @include font-size-md;
+}
+h5 {
+  @include font-size-sm;
+}
+h6,
+small {
+  @include font-size-xs;
+}
+
+// -webkit-user-stylesheets adjusts the size of h1's nested in these block elements, so we do as well.
+// Future note: it would be good to use :any() https://developer.mozilla.org/en-US/docs/Web/CSS/%3Aany
+article, aside, nav, section {
+  h1 {
+    @include font-size-xl;
+  }
+  article, aside, nav, section {
+    h1 {
+      @include font-size-lg;
+    }
+  }
+}
+
+blockquote {
+  border-left: $border_color_blockquote $border_size_blockquote $border_style_blockquote;
+  padding-left: $gutter_vertical;
+}
+
+strong {
+  font-weight: $font_weight_bold;
+}a {
+  transition: $transition_duration_hover;
+}
+@include links($link_color, $link_color_hover);ul {
+  padding-left: 1em;
+}
+
+ol {
+  padding-left: 1.5em; // numbers need more room than dots
+}
+
+dd {
+  margin-left: 2em;
+}fieldset {
+  border: none;
+  margin: 0;
+  padding: 0;
+}
+
+legend {
+  width: 100%;
+  margin-bottom: $gutter_horizontal;
+  padding-bottom: $gutter_horizontal / 2;
+  border-bottom: $border_color_input $border_size_input $border_style_input;
+}
+
+label {
+  display: inline-block;
+  margin-bottom: ($gutter_horizontal / 4);
+}
+
+  input[type=text],
+  input[type=email],
+  input[type=password],
+  input[type=url],
+  input[type=tel],
+  input[type=text],
+  input[type=number],
+  input[type=search],
+  input[type=time],
+  input[type=week],
+  input[type=month],
+  input[type=date],
+  input[type=datetime],
+  input[type=datetime-local],
+  input[type=checkbox],
+  input[type=radio],
+  textarea,
+  select {
+    color: rgba($text_color, .8);
+    border: $border_color_input $border_size_input $border_style_input;
+    border-radius: $border_radius_input;
+    outline: none;
+    transition: $transition_duration_base;
+    &:focus {
+      color: $text_color;
+      border-color: $highlight_color;
+      box-shadow: 0 0 6px rgba($highlight_color, .6);
+    }
+  }
+
+input[type=text],
+input[type=email],
+input[type=password],
+input[type=url],
+input[type=tel],
+input[type=text],
+input[type=number],
+input[type=search],
+input[type=time],
+input[type=week],
+input[type=month],
+input[type=date],
+input[type=datetime],
+input[type=datetime-local],
+textarea,
+select {
+  font-size: $font_size_forms;
+  line-height: $line_height_base;
+  font-weight: $font_weight_base;
+  display: block;
+  padding: ($gutter_horizontal / 4) ($gutter_vertical / 2);
+}
+
+input[type=text],
+input[type=email],
+input[type=password],
+input[type=url],
+input[type=tel],
+input[type=text],
+input[type=number],
+input[type=range],
+textarea {
+  width: 100%;
+}
+
+input[type=search] {
+  border-radius: 1.5em; // ???
+}
+
+input[type=checkbox],
+input[type=radio] {
+  vertical-align: middle;
+}
+
+input[type=radio] {
+  border-radius: 50%;
+}
+
+input[type=file] {  
+  &:focus {
+    outline: none;
+    color: $text_color;
+    border-color: $highlight_color;
+    box-shadow: 0 0 6px rgba($highlight_color, .6);
+  }
+}
+
+textarea {
+  min-width: 100%;
+  max-width: 100%;
+  resize: vertical;
+}
+
+select {
+  display: inline-block;
+}input[type=button],
+input[type=reset],
+input[type=submit],
+button {
+  @include button-base;
+  
+  &:focus {
+    outline: none;
+    color: $selection_color;
+    background: rgba($selection_bg_color, 0.3);
+    box-shadow: 0 0 0 0.2em rgba($selection_bg_color, 0.3);
+    text-shadow: none;
+  }
+}figure {
+  img {
+    display: block;
+  }
+  > a {
+    display: inline-block;
+  }
+  @if ($include_figure_link_hover) {
+    > a:hover + figcaption {
+      @include links($link_color_hover);
+      h1 a,
+      h2 a,
+      h3 a,
+      h4 a,
+      h5 a,
+      h6 a {
+        color: $link_color_hover;
+      }
+    }
+  }
+}
+
+figcaption {
+  overflow: auto;
+  padding-top: $gutter_horizontal / 2;
+  
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p {
+    margin-bottom: $gutter_horizontal / 2;
+  }
+}table {
+  width: 100%;
+  margin-bottom: $gutter_horizontal;
+  border-collapse: collapse;
+  text-align: left;
+  @include responsive-table;
+}@if $include_grid and $include_classes {
+  
+  .container-fluid {
+    @include container-fluid;
+  }
+  
+  .container {
+    @include container;
+  }
+  
+  .grid-row {
+    @include grid-row;
+  }
+  
+  .grid-col {
+    @include grid-col;
+  }
+  
+  .grid-col-rev {
+    @include grid-col-rev;
+  }
+
+  @each $breakpoint in $breakpoint_sizes {
+    @include build-grid-cols (nth($breakpoint, 1), nth($breakpoint, 2));
+  }
+
+/*
+  [Breaks in < 3.3]
+  @each $breakpoint_key, $breakpoint in $breakpoint_sizes {
+    @include build-grid-cols ($breakpoint_key, $breakpoint);
+  }
+*/
+}/*
+  Pass media queries to JS: https://adactio.com/journal/5429
+  We do this so we are using one consitant source for this value.
+  But also slightly tweaked because Chrome stopped letting us collect the value if the content was inside display:none;
+*/
+
+@if $include_breakpoint_sizes {
+  body:after {
+    display: block;
+    visibility: hidden;
+    width: 0;
+    height: 0;
+    margin-top: ($line_height_base * -1em);
+    padding: 0;
+    
+    @each $breakpoint in $breakpoint_sizes {
+      @if (nth($breakpoint, 2)) {
+        @media (min-width: nth($breakpoint, 2)) {
+          content: '#{nth($breakpoint, 1)}';
+        }
+      } @else {
+        content: '#{nth($breakpoint, 1)}';
+      }
+    }
+  }
+}@if $include_type and $include_classes {
+  
+  .reading-length {
+    @include reading-length;
+  }
+  
+  .font-size-xs { @include font-size-xs; } // h6
+  .font-size-sm { @include font-size-sm; } // h5
+  .font-size-md { @include font-size-md; } // h4
+  .font-size-lg { @include font-size-lg; } // h3
+  .font-size-xl { @include font-size-xl; } // h2
+  .font-size-xxl { @include font-size-xxl; } // h1
+
+/*
+  [Breaks in < 3.3]
+  @each $breakpoint_key, $breakpoint in $breakpoint_sizes {
+*/
+  
+  @each $breakpoint in $breakpoint_sizes {
+    @each $alignment in (left, center, right) {
+      .text-align-#{$alignment}-#{nth($breakpoint, 1)} {
+        @include text-align($alignment, nth($breakpoint, 2));
+      }
+    }
+  }
+  
+  .pull-quote {
+    @include pull-quote;
+  }
+  
+  @if $include_pretty_underlines {
+    .pretty-underlines {
+      @include pretty-underlines($link_color);
+    }
+    
+    .pretty-underlines-text {
+      @include pretty-underlines($text_color);
+    }
+  }
+
+}@if $include_lists and $include_classes {
+  
+  ol.list-unstyled,
+  ul.list-unstyled {
+    @include list-unstyled;
+  }
+  
+  ol.list-inline,
+  ul.list-inline {
+    @include list-inline;
+  }
+  
+  dl.list-unstyled {
+    @include dl-list-unstyled;
+  }
+  
+  dl.list-inline {
+    @include dl-list-inline;
+  }
+  
+}@if $include_classes and $include_forms {
+  .form-group {
+    @include form-group;
+  } 
+}@if $include_classes and $include_buttons {
+  .button {
+    @include button-base;
+  }
+  
+  .button-primary,
+  input.button-primary {
+    @include button-style($text_color_button_primary, $background_color_button_primary);
+  }
+}@if $include_tables and $include_classes {
+  .table-stripes {
+    @include table-stripes;
+  }
+  
+  .table-borders-horizontal {
+    @include table-borders-horizontal;
+  }
+  
+  .table-borders-vertical {
+    @include table-borders-vertical;
+  }
+  
+  .table-borders {
+    @include table-borders-vertical;
+    @include table-borders-horizontal;
+  }
+}@if $include_classes and $include_hero {
+  .hero-block {
+    @include hero-block;
+  }
+}@if $include_classes and $include_embed {
+  .embed {
+    @include embed;
+  }
+  
+  .embed-16x9 {
+    @include embed-16x9;
+  }
+  .embed-4x3 {
+    @include embed-4x3;
+  }
+  
+  .embed-item,
+  .embed iframe,
+  .embed embed,
+  .embed object,
+  .embed video {
+    @include embed-item;
+  }
+}

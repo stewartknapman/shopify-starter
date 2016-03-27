@@ -4,8 +4,11 @@
   "description": "Starter Skeleton Theme for Shopify",
   "main": "theme/templates/index.liquid",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "theme:watch": "theme watch"
+    "styles:main": "sassimport _src/scss/styles.scss -o theme/assets/styles.scss.liquid",
+    "styles:main:watch": "watch 'npm run styles:main' _src/scss/",
+    "styles:styleguide": "sassimport _src/scss/styleguide.scss -o theme/assets/styleguide.scss.liquid",
+    "styles:styleguide:watch": "watch 'npm run styles:styleguide' _src/scss/",
+    "styles:watch": "parallelshell 'npm run styles:main:watch' 'npm run styles:styleguide:watch'"
   },
   "repository": {
     "type": "git",
@@ -25,6 +28,7 @@
     "browserify": "^13.0.0",
     "parallelshell": "^2.0.0",
     "postcss-cli": "^2.5.1",
+    "sass-importer": "0.0.2",
     "uglify-js": "^2.6.2",
     "watch": "^0.17.1"
   }
