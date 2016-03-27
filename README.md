@@ -10,7 +10,9 @@ This _is_ a set of build tools, a simple structure and some basic scss.
 - Inside SCSS: [https://github.com/stewartknapman/inside](https://github.com/stewartknapman/inside)
 
 ### Shopify Theme Kit
-We recommend using Shopify's Theme Kit rather than the Theme Gem. This is what Shopify's own developers use, and has the ability to use multiple environments (i.e. development, staging, production, etc.).
+~~We recommend using Shopify's Theme Kit rather than the Theme Gem. This is what Shopify's own developers use, and has the ability to use multiple environments (i.e. development, staging, production, etc.).~~
+
+Seems to be broken for me right now, use the Theme Gem.
 
 [http://themekit.cat/install/](http://themekit.cat/install/)
 
@@ -18,5 +20,5 @@ We recommend using Shopify's Theme Kit rather than the Theme Gem. This is what S
 
 
 ## TODO
-- Setup build tasks
+- Setup build tasks (autoprefixer)
 - Settings json concat (with liquid)
