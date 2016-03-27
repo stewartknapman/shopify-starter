@@ -8,7 +8,11 @@
     "styles:main:watch": "watch 'npm run styles:main' _src/scss/",
     "styles:styleguide": "sassimport _src/scss/styleguide.scss -o theme/assets/styleguide.scss.liquid",
     "styles:styleguide:watch": "watch 'npm run styles:styleguide' _src/scss/",
-    "styles:watch": "parallelshell 'npm run styles:main:watch' 'npm run styles:styleguide:watch'"
+    "styles:watch": "parallelshell 'npm run styles:main:watch' 'npm run styles:styleguide:watch'",
+    "scripts:core": "browserify --debug _src/js/core.js > theme/assets/core.js && browserify _src/js/core.js | uglifyjs -c -m > theme/assets/core.min.js",
+    "scripts:core:watch": "watch 'npm run scripts:core' _src/js/",
+    "scripts:watch": "parallelshell 'npm run scripts:core:watch'",
+    "build": "parallelshell 'npm run styles:watch' 'npm run scripts:watch'"
   },
   "repository": {
     "type": "git",
