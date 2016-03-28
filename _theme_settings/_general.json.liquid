@@ -1,0 +1,25 @@
+{
+  "name": "General",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Branding"
+    },
+    {
+      "label": "Logo image",
+      "id": "logo.png",
+      "type": "image"
+    },
+    {
+      "label": "Site Favicon",
+      "id": "favicon.png",
+      "type": "image"
+    },
+  {% for i in (1..6) %}
+    {
+      "type": "paragraph",
+      "content": "Test Paragraph {{ i }}"
+    }{% unless forloop.last %},{% endunless %}
+  {% endfor %}
+  ]
+}

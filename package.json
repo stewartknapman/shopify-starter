@@ -12,7 +12,9 @@
     "scripts:core": "browserify --debug _src/js/core.js > theme/assets/core.js && browserify _src/js/core.js | uglifyjs -c -m > theme/assets/core.min.js",
     "scripts:core:watch": "watch 'npm run scripts:core' _src/js/",
     "scripts:watch": "parallelshell 'npm run scripts:core:watch'",
-    "build": "parallelshell 'npm run styles:watch' 'npm run scripts:watch'"
+    "settings": "shopset _theme_settings/settings_schema.json.liquid -o theme/config/settings_schema.json",
+    "settings:watch": "watch 'npm run settings' _theme_settings/",
+    "build": "parallelshell 'npm run styles:watch' 'npm run scripts:watch' 'npm run settings:watch'"
   },
   "repository": {
     "type": "git",
@@ -33,6 +35,7 @@
     "parallelshell": "^2.0.0",
     "postcss-cli": "^2.5.1",
     "sass-importer": "0.0.2",
+    "shopify-settings-generator": "git+https://github.com/stewartknapman/shopify-settings-generator.git",
     "uglify-js": "^2.6.2",
     "watch": "^0.17.1"
   }

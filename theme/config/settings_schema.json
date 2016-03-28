@@ -1,0 +1,67 @@
+[
+  {
+  "name": "theme_info",
+  "logo": "https:\/\/cdn.shopify.com\/s\/files\/1\/0000\/1712\/files\/Lucid-logo-03-512px.png",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Shopify Skeleton Starter Theme by [Lucid](http:\/\/lucid.co.nz)"
+    },
+    {
+      "type": "paragraph",
+      "content": "For theme support please contact us at [shopify@lucid.co.nz](mailto:shopify@lucid.co.nz)"
+    }
+  ]
+},
+  {
+  "name": "General",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Branding"
+    },
+    {
+      "label": "Logo image",
+      "id": "logo.png",
+      "type": "image"
+    },
+    {
+      "label": "Site Favicon",
+      "id": "favicon.png",
+      "type": "image"
+    },
+  
+    {
+      "type": "paragraph",
+      "content": "Test Paragraph 1"
+    },
+  
+    {
+      "type": "paragraph",
+      "content": "Test Paragraph 2"
+    },
+  
+    {
+      "type": "paragraph",
+      "content": "Test Paragraph 3"
+    },
+  
+    {
+      "type": "paragraph",
+      "content": "Test Paragraph 4"
+    },
+  
+    {
+      "type": "paragraph",
+      "content": "Test Paragraph 5"
+    },
+  
+    {
+      "type": "paragraph",
+      "content": "Test Paragraph 6"
+    }
+  
+  ]
+}
+
+]
