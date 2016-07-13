@@ -1,4 +1,13 @@
-require('./_pollyfills/pollyfill.getComputedStyle.js')();
+/*
+  Element Queries:
+  Media queries but for elements rather than the window.
+  
+  html: <div class="my-ele" data-element-query="min-width: 10em, min-width: 30em"> ... </div>
+  css: .my-ele[data-min-width~="30em"] { ... }
+  
+*/
+
+var _ = require('./_lib.js');
 var eqElementSelector = '[data-element-query]';
 
 var ElementQuery = function (eqEle, html) {
@@ -12,9 +21,9 @@ var ElementQuery = function (eqEle, html) {
 
 ElementQuery.prototype.addEventListeners = function () {
   var _this = this;
-  window.addEventListener('resize', function () {
+  window.addEventListener('resize', _.debounce(function () {
     _this.calcElementQueries();
-  });
+  }));
 };
 
 ElementQuery.prototype.calcElementQueries = function () {
@@ -132,12 +141,19 @@ ElementQuery.prototype.each = function (obj, callback) {
 
 /* Wrapper for multiple objects */
 var ElementQueries = function () {
+  this.queries = [];
   var html = document.querySelector('html');
   var eqElements = document.querySelectorAll(eqElementSelector);
   for (var i = 0; i < eqElements.length; i++) {
     var eqEle = eqElements[i];
-    new ElementQuery(eqEle, html);
+    this.queries.push(new ElementQuery(eqEle, html));
   }
+};
+
+ElementQueries.prototype.calcQueries = function () {
+  _.each(this.queries, function (query) {
+    query.calcElementQueries();
+  });
 };
 
 module.exports = ElementQueries;
