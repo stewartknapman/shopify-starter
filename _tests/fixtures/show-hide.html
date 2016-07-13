@@ -1,0 +1,84 @@
+<div>
+  
+  <style>
+    .hidden {
+      display: none;
+    }
+  </style>
+  
+  <!-- Basic show -->
+  <section id="show-test-1">
+    <button data-show="#show-test-1-target">Show</button>
+    <div class="target hidden" id="show-test-1-target">Hello.</div>
+  </section>
+  
+  <!-- Basic hide -->
+  <section id="hide-test-1">
+    <button data-hide="#hide-test-1-target">Hide</button>
+    <div class="target" id="hide-test-1-target">Hello.</div>
+  </section>
+  
+  <!-- Basic toggle -->
+  <section id="toggle-test-1">
+    <button data-toggle="#toggle-test-1-target">Toggle</button>
+    <div class="target hidden" id="toggle-test-1-target">Hello.</div>
+  </section>
+  
+  
+  <!-- Show multiple -->
+  <section id="show-test-2">
+    <button data-show=".target">Show</button>
+    <div class="target hidden" id="show-test-2-target-1">Hello.</div>
+    <div class="target hidden" id="show-test-2-target-2">Hello.</div>
+    <div class="target hidden" id="show-test-2-target-3">Hello.</div>
+  </section>
+  
+  <!-- Hide multiple -->
+  <section id="hide-test-2">
+    <button data-hide=".target">Hide</button>
+    <div class="target" id="hide-test-2-target-1">Hello.</div>
+    <div class="target" id="hide-test-2-target-2">Hello.</div>
+    <div class="target" id="hide-test-2-target-3">Hello.</div>
+  </section>
+  
+  <!-- Toggle multiple -->
+  <section id="toggle-test-2">
+    <button data-toggle=".target">Toggle</button>
+    <div class="target hidden" id="toggle-test-2-target-1">Hello.</div>
+    <div class="target hidden" id="toggle-test-2-target-2">Hello.</div>
+    <div class="target hidden" id="toggle-test-2-target-3">Hello.</div>
+  </section>
+  
+  
+  <!-- Toggle content show -->
+  <section id="show-test-3">
+    <button data-show="#show-test-3-target" data-toggle-content="Hide">Show</button>
+    <div class="target hidden" id="show-test-3-target">Hello.</div>
+  </section>
+  
+  <!-- Toggle content hide -->
+  <section id="hide-test-3">
+    <button data-hide="#hide-test-3-target" data-toggle-content="Show">Hide</button>
+    <div class="target" id="hide-test-3-target">Hello.</div>
+  </section>
+  
+  <!-- Toggle content toggle -->
+  <section id="toggle-test-3">
+    <button data-toggle="#toggle-test-3-target" data-toggle-content="Hide">Show</button>
+    <div class="target hidden" id="toggle-test-3-target">Hello.</div>
+  </section>
+  
+  
+  <!-- Toggle group -->
+  <section id="toggle-test-4">
+    <button data-toggle="#toggle-test-4-target-1" data-toggle-group="my-group">Toggle</button>
+    <div class="target" id="toggle-test-4-target-1">Hello.</div>
+    
+    <button data-toggle="#toggle-test-4-target-2" data-toggle-group="my-group">Toggle</button>
+    <div class="target hidden" id="toggle-test-4-target-2">Hello.</div>
+    
+    <button data-toggle="#toggle-test-4-target-3" data-toggle-group="my-group">Toggle</button>
+    <div class="target hidden" id="toggle-test-4-target-3">Hello.</div>
+  </section>
+</div>
+    
