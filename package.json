@@ -4,17 +4,21 @@
   "description": "Starter Skeleton Theme for Shopify",
   "main": "theme/templates/index.liquid",
   "scripts": {
-    "styles:main": "sassimport _src/scss/styles.scss -o theme/assets/styles.scss.liquid",
-    "styles:main:watch": "watch 'npm run styles:main' _src/scss/",
-    "styles:styleguide": "sassimport _src/scss/styleguide.scss -o theme/assets/styleguide.scss.liquid",
-    "styles:styleguide:watch": "watch 'npm run styles:styleguide' _src/scss/",
-    "styles:watch": "parallelshell 'npm run styles:main:watch' 'npm run styles:styleguide:watch'",
-    "scripts:core": "browserify --debug _src/js/core.js > theme/assets/core.js && browserify _src/js/core.js | uglifyjs -c -m > theme/assets/core.min.js",
-    "scripts:core:watch": "watch 'npm run scripts:core' _src/js/",
-    "scripts:watch": "parallelshell 'npm run scripts:core:watch'",
-    "settings": "shopset _theme_settings/settings_schema.json.liquid -o theme/config/settings_schema.json",
+    "build": "parallelshell 'npm run js:watch' 'npm run css:watch' 'npm run settings:watch'",
+    "css:watch": "watch 'npm run css:build' _src/scss/",
+    "css:build": "parallelshell 'npm run css:core' 'npm run css:styleguide'",
+    "css:core": "sassimport _src/scss/styles.scss -o theme/assets/styles.scss.liquid",
+    "css:styleguide": "sassimport _src/scss/styleguide.scss -o theme/assets/styleguide.scss.liquid",
+    "js:watch": "watch 'npm run js:test' ./_src/js/ ./_tests/",
+    "js:test": "mocha _tests/",
+    "postjs:test": "npm run js:build",
+    "js:build": "parallelshell 'npm run js:core' 'npm run js:product'",
+    "js:core": "browserify --debug _src/js/core.js > _dist/js/core.js && browserify _src/js/core.js | uglifyjs -c -m > _dist/js/core.min.js",
+    "js:product": "browserify --debug _src/js/product.js > _dist/js/product.js && browserify _src/js/product.js | uglifyjs -c -m > _dist/js/product.min.js",
+    "postjs:core": "cp _dist/js/core.js theme/assets/core.js && cp _dist/js/core.min.js theme/assets/core.min.js",
+    "postjs:product": "cp _dist/js/product.js theme/assets/product.js && cp _dist/js/product.min.js theme/assets/product.min.js",
     "settings:watch": "watch 'npm run settings' _theme_settings/",
-    "build": "parallelshell 'npm run styles:watch' 'npm run scripts:watch' 'npm run settings:watch'"
+    "settings": "shopset _theme_settings/settings_schema.json.liquid -o theme/config/settings_schema.json"
   },
   "repository": {
     "type": "git",
@@ -27,13 +31,15 @@
   },
   "homepage": "https://github.com/stewartknapman/shopify-starter#readme",
   "dependencies": {
-    "inside-scss": "^0.0.5"
+    "inside-scss": "0.0.8"
   },
   "devDependencies": {
-    "autoprefixer": "^6.3.3",
     "browserify": "^13.0.0",
+    "chai": "^3.5.0",
+    "jsdom": "^9.4.1",
+    "jsdom-global": "^2.0.0",
+    "mocha": "^2.5.3",
     "parallelshell": "^2.0.0",
-    "postcss-cli": "^2.5.1",
     "sass-importer": "0.0.2",
     "shopify-settings-generator": "git+https://github.com/stewartknapman/shopify-settings-generator.git",
     "uglify-js": "^2.6.2",
