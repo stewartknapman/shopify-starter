@@ -1,7 +1,7 @@
 require('jsdom-global')();
 var fs = require('fs');
 var assert = require('chai').assert;
-var ShowHide = require('../_src/js/_show-hide.js');
+var ShowHide = require('../_src/js/utils/_show-hide.js');
 var fixture = fs.readFileSync('./_tests/fixtures/show-hide.html', 'utf8');
 var showHide;
 var hiddenClass = 'hidden';

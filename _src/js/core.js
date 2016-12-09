@@ -8,7 +8,7 @@ require('./_pollyfills/pollyfill.classlist.js')();
 require('./_pollyfills/pollyfill.getComputedStyle.js')();
 
 // Modules needed for core js
-var _ = require('./_lib.js');
+var _ = require('./utils/_lib.js');
 
 
 _.ready(function () {
