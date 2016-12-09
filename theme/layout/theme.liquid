@@ -10,6 +10,16 @@
   {{ content_for_header }}
 </head>
 <body class="template-{{ template | split:'.' | first }} {% if template contains '.' %}template-{{ template | replace:'.','-' }}{% endif %}">
-  {{ content_for_layout }}
+  <header class="site-header">
+    {% section 'header' %}
+  </header>
+  
+  <main class="site-main" role="main">
+    {{ content_for_layout }}
+  </main>
+  
+  <footer class="site-footer">
+    {% section 'footer' %}
+  </footer>
 </body>
 </html>
