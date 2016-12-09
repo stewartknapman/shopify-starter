@@ -21,5 +21,5 @@ We recommend using Shopify's Theme Kit rather than the Theme Gem. This is what S
 
 ## TODO
 - Setup build tasks (autoprefixer)
-- Settings json concat (with liquid)
 - JS structure needs a bit of work
+- svg icons with fallback
