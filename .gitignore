@@ -1,5 +1,4 @@
 *.zip
 config.yml
 theme/config.yml
-theme/config_gem.yml
 node_modules
