@@ -1,21 +1,86 @@
+{%- if section.blocks.size > 0 -%}
 <section class="footer-content">
-  
+  <div class="container">
+    {%- for block in section.blocks -%}
+      {%- if block.type == 'area' -%}
+      <div class="footer-area">
+        {%- if block.settings.heading != blank -%}
+          <h4 class="footer-area-heading">{{ block.settings.heading }}</h4>
+        {%- endif -%}
+        
+        {%- if block.settings.text != blank -%}
+          <div class="footer-area-text">{{ block.settings.text }}</div>
+        {%- endif -%}
+        
+        {%- if block.settings.link_list.links.size > 0 -%}
+          <ul class="footer-area-link-list">
+            {%- for link in block.settings.link_list.links -%}
+              <li{% if link.active %} class="link-active"{% endif %}><a href="{{ link.url }}" title="{{ link.title | escape }}">{{ link.title }}</a></li>
+            {%- endfor -%}
+          </ul>
+        {%- endif -%}
+        
+        {%- if block.settings.image -%}
+          {% comment %}
+            TODO:
+            - srcset
+            - better alt fallback, maybe image file name prettied up
+          {% endcomment %}
+          <img src="{{ block.settings.image | image_url: '200x' }}" alt="{{ block.settings.image.alt | default: block.settings.heading | escape }}">
+        {%- endif -%}
+      </div>
+      {%- endif -%}
+    {%- endfor -%}
+  </div>
 </section>
+{%- endif -%}
 
 <section class="footer-credits">
-  
+  <div class="container">
+    
+  </div>
 </section>
 
 {% schema %}
 {
-  "name": "footer",
+  "name": "Footer",
   "class": "footer",
   "max_blocks": 6,
   "settings": [
     
   ],
   "blocks": [
-    
+    {
+      "type": "area",
+      "name": "Area",
+      "settings": [
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Heading"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Text"
+        },
+        {
+          "type": "link_list",
+          "id": "link_list",
+          "label": "Navigation list"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "blog",
+          "id": "blog",
+          "label": "Recent article list"
+        }
+      ]
+    }
   ]
 }
 {% endschema %}

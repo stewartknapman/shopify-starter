@@ -9,7 +9,7 @@
 
   {{ content_for_header }}
 </head>
-<body class="template-{{ template | split:'.' | first }} {% if template contains '.' %}template-{{ template | replace:'.','-' }}{% endif %}">
+<body class="template-{{ template | split:'.' | first }}{% if template contains '.' %} template-{{ template | replace:'.','-' }}{% endif %}">
   <header class="site-header">
     {% section 'header' %}
   </header>
