@@ -27,6 +27,7 @@
             - srcset
             - better alt fallback, maybe image file name prettied up
           {% endcomment %}
+          {% comment [IMAGE] - update sizes for your own needs %}{% endcomment %}
           <img src="{{ block.settings.image | img_url: '200x' }}" alt="{{ block.settings.image.alt | default: block.settings.heading | escape }}">
         {%- endif -%}
         
