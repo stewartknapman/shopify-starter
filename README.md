@@ -8,16 +8,26 @@ You will need to BYO design, layout, and custom modules/sections/whatever.
 
 ## Tools
 
-- Shopify Theme Kit: [http://themekit.cat/install/](http://themekit.cat/install/)
+- Shopify Theme Kit: [http://themekit.cat/](http://themekit.cat/)
 - Inside SCSS: [https://github.com/stewartknapman/inside](https://github.com/stewartknapman/inside)
 
 ### Shopify Theme Kit
 We recommend using Shopify's Theme Kit rather than the Theme Gem. This is what Shopify's own developers use, and has the ability to use multiple environments (i.e. development, staging, production, etc.).
 
-[http://themekit.cat/install/](http://themekit.cat/install/)
+[http://themekit.cat/](http://themekit.cat/)
 
-### Commands
+### Inside SCSS
+I built a light weight SASS framework for my own needs. I like it. Don't want it? Don't worry, you can just remove the lines that look like this `@import '../../node_modules/inside-scss/src/inside';` in the main scss files (`_src/scss/`) and replace them with what ever you want.
 
+## Commands
+
+```
+npm run build
+```
+
+To do: more detail on how to run the build tasks.
+
+## Important Notes
 
 ### Images
 
