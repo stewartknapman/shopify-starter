@@ -25,6 +25,16 @@ I don't know what size images you need, you'll have to find the image tags and u
 
 To make them easy to find I've included this comment tag: `{% comment [IMAGE] - update sizes for your own needs %}{% endcomment %}` with each image tag, so all you need to do is search your project for `[IMAGE]`.
 
+### Layout and Grids
+
+Again, I don't know what you need, so I've left everything one column and full width. It's up to you and your design.
+
+However there is a grid system here, should you need it. Here are your options:
+
+- Use flexbox (or css grids if you can get away with being that bleeding edge)
+- Use the built in [sass grid mixins](https://github.com/stewartknapman/inside/#grids)
+- Use the built in [grid classes](https://github.com/stewartknapman/inside/#grids) (if you're old school/lazy)
+
 ## TODO
 - Setup build tasks (autoprefixer)
 - JS structure needs a bit of work
