@@ -29,16 +29,6 @@
           </ul>
         {%- endif -%}
         
-        {%- if block.settings.image -%}
-          {%- assign image_filename = block.settings.image | split: '/' | last | split: '.' | first | replace: '_',' ' | replace: '-',' ' | capitalize -%}
-          <img src="{{ block.settings.image | img_url: '200x' }}"
-            {% comment [IMAGE] - update sizes for your own needs %}
-            srcset="{{ block.settings.image | img_url: '200x' }} 100w"
-            sizes="100vw"
-            {% endcomment %}
-            alt="{{ block.settings.image.alt | default: image_filename | escape }}">
-        {%- endif -%}
-        
         {%- assign blog = blogs[block.settings.blog] -%}
         {%- if blog -%}
           <ul class="footer-area-blog-list">
@@ -47,13 +37,37 @@
                 <h5><a href="{{ article.url }}">{{ article.title }}</a></h5>
                 {%- if section.settings.show_blog_list_excerpt -%}
                   <div class="footer-area-article-excerpt">
-                    {{ article.excerpt_or_content | truncatewords: 20 }}
-                    <a href="{{ article.url }}">{{ 'articles.read_more' | t }}</a>
+                    <p>
+                      {{ article.excerpt_or_content | strip_html | truncatewords: 20 }}
+                      <a href="{{ article.url }}">{{ 'articles.read_more' | t }}</a>
+                    </p>
                   </div>
                 {%- endif -%}
               </li>
             {%- endfor -%}
           </ul>
+        {%- endif -%}
+        
+        {%- if block.settings.image -%}
+          {%- assign image_filename = block.settings.image | split: '/' | last | split: '.' | first | replace: '_',' ' | replace: '-',' ' | capitalize -%}
+          <figure class="footer-area-image">
+            {%- if block.settings.image_url != blank -%}<a href="{{ block.settings.image_url }}">{%- endif -%}
+              
+            <img src="{{ block.settings.image | img_url: '200x' }}"
+              {% comment [IMAGE] - update sizes for your own needs %}
+              srcset="{{ block.settings.image | img_url: '200x' }} 100w"
+              sizes="100vw"
+              {% endcomment %}
+              alt="{{ block.settings.image.alt | default: image_filename | escape }}">
+              
+            {%- if block.settings.image_url != blank -%}</a>{%- endif -%}
+            
+            {%- if block.settings.image_caption != blank -%}
+            <figcaption>
+              <p>{{ block.settings.image_caption }}</p>
+            </figcaption>
+            {%- endif -%}
+          </figure>
         {%- endif -%}
       </div>
       {%- endif -%}
@@ -111,9 +125,22 @@
           "label": "Text"
         },
         {
+          "type": "header",
+          "content": "Lists"
+        },
+        {
           "type": "link_list",
           "id": "link_list",
           "label": "Navigation list"
+        },
+        {
+          "type": "blog",
+          "id": "blog",
+          "label": "Recent article list"
+        },
+        {
+          "type": "header",
+          "content": "Images"
         },
         {
           "type": "image_picker",
@@ -121,9 +148,14 @@
           "label": "Image"
         },
         {
-          "type": "blog",
-          "id": "blog",
-          "label": "Recent article list"
+          "type": "url",
+          "id": "image_url",
+          "label": "Image link"
+        },
+        {
+          "type": "text",
+          "id": "image_caption",
+          "label": "Image caption"
         }
       ]
     }
