@@ -22,13 +22,13 @@
         {%- endif -%}
         
         {%- if block.settings.image -%}
-          {% comment %}
-            TODO:
-            - srcset
-            - better alt fallback, maybe image file name prettied up
-          {% endcomment %}
-          {% comment [IMAGE] - update sizes for your own needs %}{% endcomment %}
-          <img src="{{ block.settings.image | img_url: '200x' }}" alt="{{ block.settings.image.alt | default: block.settings.heading | escape }}">
+          {%- assign image_filename = block.settings.image | split: '/' | last | split: '.' | first | replace: '_',' ' | replace: '-',' ' | capitalize -%}
+          <img src="{{ block.settings.image | img_url: '200x' }}"
+            {% comment [IMAGE] - update sizes for your own needs %}
+            srcset="{{ block.settings.image | img_url: '200x' }} 100w"
+            sizes="100vw"
+            {% endcomment %}
+            alt="{{ block.settings.image.alt | default: image_filename | escape }}">
         {%- endif -%}
         
         {% comment %}
