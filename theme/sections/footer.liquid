@@ -1,3 +1,11 @@
+{% comment %}
+  TODO:
+  - Newsletter sign up
+  - Copyright date
+  - Powered by link
+  - Theme credits
+{% endcomment %}
+
 {%- if section.blocks.size > 0 -%}
 <section class="footer-content">
   <div class="container">
@@ -31,10 +39,22 @@
             alt="{{ block.settings.image.alt | default: image_filename | escape }}">
         {%- endif -%}
         
-        {% comment %}
-          TODO:
-          - Blog list
-        {% endcomment %}
+        {%- assign blog = blogs[block.settings.blog] -%}
+        {%- if blog -%}
+          <ul class="footer-area-blog-list">
+            {%- for article in blog.articles limit:section.settings.blog_list_limit -%}
+              <li>
+                <h5><a href="{{ article.url }}">{{ article.title }}</a></h5>
+                {%- if section.settings.show_blog_list_excerpt -%}
+                  <div class="footer-area-article-excerpt">
+                    {{ article.excerpt_or_content | truncatewords: 20 }}
+                    <a href="{{ article.url }}">{{ 'articles.read_more' | t }}</a>
+                  </div>
+                {%- endif -%}
+              </li>
+            {%- endfor -%}
+          </ul>
+        {%- endif -%}
       </div>
       {%- endif -%}
     {%- endfor -%}
@@ -44,7 +64,6 @@
 
 <section class="footer-credits">
   <div class="container">
-    
   </div>
 </section>
 
@@ -54,7 +73,27 @@
   "class": "footer",
   "max_blocks": 6,
   "settings": [
-    
+    {
+      "type": "header",
+      "content": "Recent article list"
+    },
+    {
+      "type": "select",
+      "id": "blog_list_limit",
+      "label": "Number of articles to show",
+      "options": [
+        { "value": "3", "label": "3" },
+        { "value": "4", "label": "4" },
+        { "value": "5", "label": "5" },
+        { "value": "6", "label": "6" }
+      ],
+      "default": "5"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_blog_list_excerpt",
+      "label": "Show articles excerpt"
+    }
   ],
   "blocks": [
     {
