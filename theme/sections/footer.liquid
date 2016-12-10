@@ -12,9 +12,10 @@
           <div class="footer-area-text">{{ block.settings.text }}</div>
         {%- endif -%}
         
-        {%- if block.settings.link_list.links.size > 0 -%}
+        {%- assign link_list = linklists[block.settings.link_list] -%}
+        {%- if link_list -%}
           <ul class="footer-area-link-list">
-            {%- for link in block.settings.link_list.links -%}
+            {%- for link in link_list.links -%}
               <li{% if link.active %} class="link-active"{% endif %}><a href="{{ link.url }}" title="{{ link.title | escape }}">{{ link.title }}</a></li>
             {%- endfor -%}
           </ul>
@@ -26,8 +27,13 @@
             - srcset
             - better alt fallback, maybe image file name prettied up
           {% endcomment %}
-          <img src="{{ block.settings.image | image_url: '200x' }}" alt="{{ block.settings.image.alt | default: block.settings.heading | escape }}">
+          <img src="{{ block.settings.image | img_url: '200x' }}" alt="{{ block.settings.image.alt | default: block.settings.heading | escape }}">
         {%- endif -%}
+        
+        {% comment %}
+          TODO:
+          - Blog list
+        {% endcomment %}
       </div>
       {%- endif -%}
     {%- endfor -%}
