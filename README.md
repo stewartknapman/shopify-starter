@@ -58,4 +58,4 @@ However there is a grid system here, should you need it. Here are your options:
 ## TODO
 - Setup build tasks (autoprefixer)
 - JS structure needs a bit of work
-- svg icons with fallback
+- svg icons with fallback (one include snippet file at the top of the body that defines the symbols, built from a folder of icons. <use> to use them. Include <title> for accessibility Fallback to text/emoji?)
