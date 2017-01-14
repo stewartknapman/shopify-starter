@@ -4,10 +4,12 @@
 */
 
 // Include css classes in output.
-// Set to false if you intend on just using mixins and setting your own classes.
+// Set to false if you want to use mixins and set your own classes.
 $include_classes: true !default;
 
-// Include fluid type settings: http://trentwalton.com/2012/06/19/fluid-type/
+// Include fluid type settings:
+//  - https://www.smashingmagazine.com/2016/05/fluid-typography/
+//  - https://blog.typekit.com/2016/08/17/flexible-typography-with-css-locks/
 // This will increase the font size as the screen size increases.
 // Set to false if you want to keep a consistent font size across all screen sizes.
 $include_fluid_type: true !default;
@@ -18,7 +20,7 @@ $include_pretty_underlines: true !default;
 
 // Include modules.
 // Set to false if you don't need the extended modules.
-$include_grid:    true !default;
+$include_grid:    false !default; // Default is false to encorrage flexbox and/or css grids
 $include_type:    true !default;
 $include_lists:   true !default;
 $include_buttons: true !default;
@@ -66,6 +68,16 @@ $breakpoint_sizes: (xs false) (sm $breakpoint_sm) (md $breakpoint_md) (lg $break
   A standard line height of 1.5ems on the body (@16px) is 24px
 */
 
+// Heading and component sizes
+$font_size_base:  1em !default;
+$font_size_xxl:   2.5em !default;             // ~ 40px
+$font_size_xl:    2em !default;               // ~ 32px
+$font_size_lg:    1.5em !default;             // ~ 24px and used inside hero objects
+$font_size_md:    1.25em !default;            // ~ 20px
+$font_size_sm:    $font_size_base !default;   // ~ 16px
+$font_size_xs:    0.8125em !default;          // ~ 13px
+$font_size_forms: $font_size_xs !default;
+
 // Base sizes and heights
 $line_height_base:  1.5 !default;
 $line_height_xxl:   1.1 !default;
@@ -75,24 +87,15 @@ $line_height_md:    1.4 !default;
 $line_height_sm:    $line_height_base !default;
 $line_height_xs:    1.6 !default;
 
-$font_size_base:  1em !default;
-
 // Fluid type sizes
-$fluid_type_sm:   1.1em !default;
-$fluid_type_md:   1.2em !default;
-$fluid_type_lg:   1.3em !default;
-$fluid_type_xl:   1.4em !default;
+$fluid_type_min_vw:     20em !default;
+$fluid_type_max_vw:     87.5em !default;
+$font_size_min_value:   $font_size_base !default;
+$font_size_max_value:   1.5em !default;
+$line_height_min_value: 1.3em !default;
+$line_height_max_value: 1.5em !default;
 
-$max_reading_length: 40em !default;
-
-// Heading and component sizes
-$font_size_xxl:   2.5em !default;             // ~ 40px
-$font_size_xl:    2em !default;               // ~ 32px
-$font_size_lg:    1.5em !default;             // ~ 24px and used inside hero objects
-$font_size_md:    1.25em !default;            // ~ 20px
-$font_size_sm:    $font_size_base !default;   // ~ 16px
-$font_size_xs:    0.8125em !default;          // ~ 13px
-$font_size_forms: $font_size_xs !default;
+$max_reading_length: 35em !default;
 
 // Font families
 $font_family_serif:      Georgia, "Times New Roman", Times, serif !default;
@@ -238,13 +241,26 @@ $transition_duration_hover:     $transition_duration_base !default;@mixin clearf
   }
 }
 
-@mixin force-redraw {
-  /* 
-    Arbitrary webkit-only property that forces a redraw
-    Fixes currentColor bug
-    see: http://stackoverflow.com/questions/36046185/how-to-hack-around-linear-gradient-with-currentcolor-bug-in-chrome
-  */
-  -webkit-margin-start: -.001px;
+@mixin visually-hidden {
+  position: absolute;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  width: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+}
+
+@mixin lobotomized-owl ($margin-top) {
+  * + * {
+    margin-top: $margin-top;
+  }
+  
+  * + br,
+  option + option {
+    margin-top: 0;
+  }
 }/*
   Containers
 */
@@ -271,10 +287,10 @@ $transition_duration_hover:     $transition_duration_base !default;@mixin clearf
   @if ($container_key == $breakpoint_key) {
     @if ($breakpoint) {
       @media (min-width: $breakpoint) {
-        width: $container_size
+        width: $container_size;
       }
     } @else {
-      width: $container_size
+      width: $container_size;
     }
   }
 }
@@ -402,7 +418,33 @@ $transition_duration_hover:     $transition_duration_base !default;@mixin clearf
     @include build-grid-col ($col_key, $col_size, $breakpoint_key, $breakpoint);
   }
 }
-*/// Sizes
+*/// `strip-unit()` function by Hugo Giraudel
+@function strip-unit($value) {
+  @return $value / ($value * 0 + 1);
+}
+
+// `fluid-lock()` mixin by Indrek Paas http://www.sassmeister.com/gist/7f22e44ace49b5124eec
+@mixin fluid-lock($properties, $min-vw, $max-vw, $min-value, $max-value) {
+  @each $property in $properties {
+    #{$property}: $min-value;
+  }
+  
+  @if $include_fluid_type {
+    @media (min-width: $min-vw) {
+      @each $property in $properties {
+        #{$property}: calc(#{$min-value} + #{strip-unit($max-value - $min-value)} * (100vw - #{$min-vw}) / #{strip-unit($max-vw - $min-vw)});
+      }
+    }
+  
+    @media (min-width: $max-vw) {
+      @each $property in $properties {
+        #{$property}: $max-value;
+      }
+    }
+  }
+}
+
+// Sizes
 @mixin font-size-xs {
   font-size: $font_size_xs;
   line-height: $line_height_xs;
@@ -468,6 +510,17 @@ $transition_duration_hover:     $transition_duration_base !default;@mixin clearf
   background-repeat: repeat-x;
   background-position: 0 $underline_position;
   background-size: 100% $underline_weight;
+}
+
+@mixin force-redraw {
+  /* 
+    Arbitrary webkit-only property that forces a redraw
+    Fixes currentColor bug
+    see: http://stackoverflow.com/questions/36046185/how-to-hack-around-linear-gradient-with-currentcolor-bug-in-chrome
+  */
+  @if ($include_pretty_underlines) {
+    -webkit-margin-start: -.001px;
+  }
 }@mixin list-unstyled {
   padding: 0;
   list-style: none;
@@ -725,9 +778,7 @@ html {
   margin: 0;
 }
 
-* + * {
-  margin-top: $gutter_horizontal;
-}
+@include lobotomized-owl($gutter_horizontal);
 
 html, body {
   height: 100%;
@@ -747,25 +798,11 @@ svg {
   background: $selection_bg_color;
   text-shadow: none;
 }html {
-  @if $include_fluid_type {
-    @media (min-width: $breakpoint_sm) {
-      font-size: $fluid_type_sm;
-    }
-    @media (min-width: $breakpoint_md) {
-      font-size: $fluid_type_md;
-    }
-    @media (min-width: $breakpoint_lg) {
-      font-size: $fluid_type_lg;
-    }
-    @media (min-width: $breakpoint_xl) {
-      font-size: $fluid_type_xl;
-    }
-  }
+  @include fluid-lock(font-size, $fluid_type_min_vw, $fluid_type_max_vw, $font_size_min_value, $font_size_max_value);
+  @include fluid-lock(line-height, $fluid_type_min_vw, $fluid_type_max_vw, $line_height_min_value, $line_height_max_value);
 }
 
 body {
-  font-size: $font_size_base;
-  line-height: $line_height_base;
   font-family: $font_family_body;
   font-weight: $font_weight_base;
   color: $text_color;
@@ -842,7 +879,7 @@ hr {
     transition: $transition_duration_hover;
   }
   
-  @if $include_pretty_underlines {
+  @if ($include_pretty_underlines) {
     @include pretty-underlines();
   }
   
@@ -871,7 +908,7 @@ h5 a,
 h6 a {
   text-decoration: none;
   color: inherit;
-  @if $include_pretty_underlines {
+  @if ($include_pretty_underlines) {
     background: none;
   }
 }ul {
@@ -904,8 +941,7 @@ label {
   display: inline-block;
 }
 
-label + label,
- {
+label + label {
   margin-top: 0;
   margin-left: $gutter_vertical;
 }
@@ -1023,11 +1059,10 @@ input[type=submit],
 button {
   @include button-base;
 }figure {
+  @include lobotomized-owl($gutter_horizontal/2);
+  
   img {
     display: block;
-  }
-  > a {
-    display: inline-block;
   }
   
   @if ($include_figure_link_hover) {
@@ -1049,18 +1084,9 @@ button {
   .grid-col-rev & {
     margin-top: $gutter_horizontal;
   }
-}
-
-figcaption {
-  overflow: auto;
-  margin-top: 0;
-  
-  * + * {
-    margin-top: $gutter_horizontal / 2;
-  }
 }table {
   width: 100%;
-//   margin-bottom: $gutter_horizontal;
+  table-layout: fixed;
   border-collapse: collapse;
   text-align: left;
   
@@ -1245,5 +1271,9 @@ figcaption {
 }@if $include_utilities and $include_classes {
   .clearfix {
     @include clearfix;
+  }
+  
+  .visually-hidden { 
+    @include visually-hidden;
   }
 }

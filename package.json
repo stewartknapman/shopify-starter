@@ -31,7 +31,7 @@
   },
   "homepage": "https://github.com/stewartknapman/shopify-starter#readme",
   "dependencies": {
-    "inside-scss": "0.0.8"
+    "inside-scss": "^1.0.0"
   },
   "devDependencies": {
     "browserify": "^13.0.0",
