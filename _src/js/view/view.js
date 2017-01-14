@@ -62,9 +62,8 @@ View.prototype._buildProperty = function (data) {
   Object.defineProperty(this, dataName, {
     enumerable: true,
     get: function () {
-      value = value;
       if (!value) {
-        dataEle = this.ele.querySelectorAll(selector)[0];
+        dataEle = this.ele.querySelector(selector);
         value = (!!dataEle.value)? dataEle.value : dataEle.innerHTML;
       }
       return value;
@@ -83,10 +82,6 @@ View.prototype._buildProperty = function (data) {
       }
     }
   });
-}
-
-View.prototype._getDataName = function (data) {
-  
 };
 
 View.prototype._buildMethods = function (data) {
