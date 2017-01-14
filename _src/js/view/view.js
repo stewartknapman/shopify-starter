@@ -1,7 +1,7 @@
 /*
 var view = new View({
   ele: 'master element',
-  template: '#id of template <script>',
+  template: '#id of template <script>', // not 100% sure how this works or IF we need it
   data: [ // set props on object and bind to eles with data-attrs
     // we don't need to update these on page load as they should be good from the liquid, so no value needed
     prop1,
@@ -25,7 +25,7 @@ v1.on('evnt', function () {
 
 */
 
-// var _ = Theme._;
+var _ = Theme._;
 var View = function (opts) {
   if (!opts.ele) return;
   this.ele = opts.ele;
@@ -48,6 +48,44 @@ View.prototype.init = function () {
 
 // Private methods
 View.prototype._buildProperties = function (data) {
+  _.each(data, function (d) {
+    this._buildProperty(d);
+  }, this);
+};
+
+View.prototype._buildProperty = function (data) {
+  var value,
+    dataEle,
+    dataEles,
+    dataName = _.camelCase(data),
+    selector = '[data-'+data+']';
+  Object.defineProperty(this, dataName, {
+    enumerable: true,
+    get: function () {
+      value = value;
+      if (!value) {
+        dataEle = this.ele.querySelectorAll(selector)[0];
+        value = (!!dataEle.value)? dataEle.value : dataEle.innerHTML;
+      }
+      return value;
+    },
+    set: function (newValue) {
+      if (newValue !== value) {
+        value = newValue;      
+        dataEles = dataEles || this.ele.querySelectorAll(selector);
+        _.each(dataEles, function (dataEle) {
+          if (!!dataEle.value) {
+            dataEle.value = value;
+          } else {
+            dataEle.innerHTML = value;
+          }
+        });
+      }
+    }
+  });
+}
+
+View.prototype._getDataName = function (data) {
   
 };
 

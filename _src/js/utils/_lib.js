@@ -43,6 +43,11 @@ module.exports = {
     return str[0].toUpperCase() + str.slice(1);
   },
   
+  camelCase: function (str) {
+    return str.replace(/([\-\s]\w)/g, function (s) {
+      return s[1].toUpperCase();
+    });
+  },
   
   /*
     Event Functions
