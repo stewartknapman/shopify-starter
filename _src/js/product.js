@@ -2,9 +2,6 @@
 var supports = !!document.querySelector && !!window.addEventListener;
 if (!supports) return;
 
-// Modules needed for core js
-var _ = require('./utils/_lib.js');
-
-_.ready(function () {
+window._.ready(function () {
   console.log('PRODUCT ready');
 });
