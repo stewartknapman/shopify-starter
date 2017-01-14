@@ -2,6 +2,10 @@
   Theme Core
   - Sets up reusable objects like _lib, and mq-size
   - Sets up generic objects like show-and-hide, and element-queries
+  - image galleries?
+  - customer login header widget
+  
+  Storage model uses browser DB and cookies?
 */
 
 // Check that we have what we need to move forward
@@ -9,7 +13,7 @@ var supports = !!document.querySelector && !!window.addEventListener;
 if (!supports) return;
 
 // Main Theme object
-window.Theme = {};
+window.Theme = window.Theme || {};
 
 // Modules needed for core js
 Theme._ = _ = require('./utils/_lib.js');

@@ -5,6 +5,7 @@
 {% endcomment %}
 
 <link rel="preload" href="{{ 'core.min.js' | asset_url }}" as="script">
+<link rel="preload" href="{{ 'translations.min.js' | asset_url }}" as="script">
 <link rel="preload" href="{{ 'product.min.js' | asset_url }}" as="script">
 
 <script>
@@ -13,6 +14,7 @@
     script;
   var scripts = [
     '{{ 'core.min.js' | asset_url }}',
+    '{{ 'translations.min.js' | asset_url }}',
     '{{ 'product.min.js' | asset_url }}'
   ];
   
