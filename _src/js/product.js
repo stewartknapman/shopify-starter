@@ -2,6 +2,6 @@
 var supports = !!document.querySelector && !!window.addEventListener;
 if (!supports) return;
 
-window._.ready(function () {
+Theme._.ready(function () {
   console.log('PRODUCT ready');
 });
