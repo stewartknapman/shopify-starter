@@ -6,6 +6,7 @@
 
 <link rel="preload" href="{{ 'core.min.js' | asset_url }}" as="script">
 <link rel="preload" href="{{ 'translations.min.js' | asset_url }}" as="script">
+<link rel="preload" href="{{ 'cart.min.js' | asset_url }}" as="script">
 <link rel="preload" href="{{ 'product.min.js' | asset_url }}" as="script">
 
 <script>
@@ -15,6 +16,7 @@
   var scripts = [
     '{{ 'core.min.js' | asset_url }}',
     '{{ 'translations.min.js' | asset_url }}',
+    '{{ 'cart.min.js' | asset_url }}',
     '{{ 'product.min.js' | asset_url }}'
   ];
   
@@ -35,4 +37,8 @@
     script.src = src;
     document.head.appendChild(script);
   };
+  
+  // Setup cart data
+  window.Theme = window.Theme || {};
+  Theme.cartJson = {{ cart | json }};
 </script>

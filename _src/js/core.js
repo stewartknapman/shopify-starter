@@ -16,7 +16,7 @@ if (!supports) return;
 window.Theme = window.Theme || {};
 
 // Modules needed for core js
-Theme._ = _ = require('./utils/_lib.js');
+var _ = Theme._ = require('./utils/_lib.js');
 Theme.mqSize = require('./utils/_mq-size.js');
 
 var ElementQueries = require('./utils/_element-queries.js');
