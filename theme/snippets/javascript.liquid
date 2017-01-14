@@ -1,0 +1,36 @@
+{% comment %}
+  Script loading for speed:
+  - https://hackernoon.com/10-things-i-learned-making-the-fastest-site-in-the-world-18a0e1cdf4a7
+  - https://www.html5rocks.com/en/tutorials/speed/script-loading/
+{% endcomment %}
+
+<link rel="preload" href="{{ 'core.min.js' | asset_url }}" as="script">
+<link rel="preload" href="{{ 'product.min.js' | asset_url }}" as="script">
+
+<script>
+  // Setup scripts
+  var src,
+    script;
+  var scripts = [
+    '{{ 'core.min.js' | asset_url }}',
+    '{{ 'product.min.js' | asset_url }}'
+  ];
+  
+  // Check for polyfills
+  var supports = (
+    !!window.getComputedStyle &&
+    !!("classList" in document.createElement("p")) &&
+    !!("dataset" in document.createElement("p"))
+  );
+  if (!supports) {
+    scripts.unshift('{{ 'polyfills.min.js' | asset_url }}');
+  }
+  
+  // loop scripts and add them
+  while (src = scripts.shift()) {
+    script = document.createElement('script');
+    script.async = false;
+    script.src = src;
+    document.head.appendChild(script);
+  };
+</script>

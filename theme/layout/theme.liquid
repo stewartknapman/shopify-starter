@@ -8,6 +8,7 @@
   <title>{{ page_title | escape }}</title>
 
   {{ 'styles.scss.css' | asset_url | stylesheet_tag }}
+  {% include 'javascript' %}
 
   {{ content_for_header }}
 </head>
