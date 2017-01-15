@@ -147,6 +147,8 @@ describe('View', function () {
   });
   
   describe('Events', function () {
+    it('can call methods on events triggered from its child elements');
     
+    it('will stop click event propergation on links');
   });
 });

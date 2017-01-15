@@ -5,6 +5,9 @@ var cartCount = new View({
     'item-count',
     'cart-total'
   ],
+  events: {
+    
+  },
   methods: {
     afterInit: function () {
       console.log('cartCount afterInit');
