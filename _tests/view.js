@@ -112,7 +112,38 @@ describe('View', function () {
   });
   
   describe('Methods', function () {
+    it('can have custom methods', function () {
+      var t, i = 0;
+      var view = new View({
+        ele: '[data-view]',
+        methods: {
+          myMethod: function () {
+            i++;
+            t = this;
+          }
+        }
+      });
+      assert.equal(i, 0);
+      assert.equal(t, undefined);
+      view.myMethod();
+      assert.equal(i, 1);
+      assert.equal(t, view);
+    });
     
+    it('has an afterInit hook method', function () {
+      var t, i = 0;
+      var view = new View({
+        ele: '[data-view]',
+        methods: {
+          afterInit: function () {
+            i++;
+            t = this;
+          }
+        }
+      });
+      assert.equal(i, 1);
+      assert.equal(t, view);
+    });
   });
   
   describe('Events', function () {

@@ -10,5 +10,5 @@ var supports = !!document.querySelector && !!window.addEventListener;
 if (!supports) return;
 
 Theme._.ready(function () {
-  console.log('PRODUCT ready');
+//   console.log('PRODUCT ready');
 });

@@ -4,6 +4,15 @@ var cartCount = new View({
   data: [
     'item-count',
     'cart-total'
-  ]
+  ],
+  methods: {
+    afterInit: function () {
+      console.log('cartCount afterInit');
+    },
+    test: function () {
+      console.log('method test', this);
+      this.itemCount = 1;
+    }
+  }
 });
 module.exports = cartCount;

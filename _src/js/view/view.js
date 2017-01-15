@@ -26,27 +26,32 @@ v1.on('evnt', function () {
 */
 
 var _ = Theme._;
+var Eventer = require('../utils/_eventer.js');
+
 var View = function (opts) {
   if (!opts.ele) return;
   this.ele = opts.ele;
-  this.template = opts.template || false;
   
+  // Set view properties and methods
   if (opts.data) this._buildProperties(opts.data);
   if (opts.methods) this._buildMethods(opts.methods);
   
+  // Give view custom events
+  new Eventer(this);
+  
   _.ready(function () {
-    this.init();
+    this._init();
   }, this);
 };
 
-// Public methods
-View.prototype.init = function () {
+// Private methods
+View.prototype._init = function () {
   this.ele = document.querySelector(this.ele);
   if (this.template) this.template = document.querySelector(this.template);
   if (this.events) this._buildEventListeners(this.events);
+  if (this.afterInit) this.afterInit();
 };
 
-// Private methods
 View.prototype._buildProperties = function (data) {
   _.each(data, function (d) {
     this._buildProperty(d);
@@ -84,8 +89,10 @@ View.prototype._buildProperty = function (data) {
   });
 };
 
-View.prototype._buildMethods = function (data) {
-  
+View.prototype._buildMethods = function (methods) {
+  _.eachIn(methods, function (methodName, method) {
+    this[methodName] = method;
+  }, this);
 };
 
 View.prototype._buildEventListeners = function (events) {
