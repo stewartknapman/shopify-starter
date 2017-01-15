@@ -34,7 +34,9 @@ var View = function (opts) {
   if (opts.data) this._buildProperties(opts.data);
   if (opts.methods) this._buildMethods(opts.methods);
   
-  console.log('VIEW');
+  _.ready(function () {
+    this.init();
+  }, this);
 };
 
 // Public methods
@@ -42,8 +44,6 @@ View.prototype.init = function () {
   this.ele = document.querySelector(this.ele);
   if (this.template) this.template = document.querySelector(this.template);
   if (this.events) this._buildEventListeners(this.events);
-  
-  console.log('VIEW INIT');
 };
 
 // Private methods
@@ -62,16 +62,16 @@ View.prototype._buildProperty = function (data) {
   Object.defineProperty(this, dataName, {
     enumerable: true,
     get: function () {
-      if (!value) {
-        dataEle = this.ele.querySelector(selector);
+      dataEle = this.ele.querySelector(selector);
+      if (dataEle) {
         value = (!!dataEle.value)? dataEle.value : dataEle.innerHTML;
       }
       return value;
     },
     set: function (newValue) {
       if (newValue !== value) {
-        value = newValue;      
-        dataEles = dataEles || this.ele.querySelectorAll(selector);
+        value = newValue;
+        dataEles = this.ele.querySelectorAll(selector);
         _.each(dataEles, function (dataEle) {
           if (!!dataEle.value) {
             dataEle.value = value;

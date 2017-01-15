@@ -14,6 +14,5 @@ window.Theme = window.Theme || {};
 var cartCount = Theme.cartCount = require('./modules/cart-count.js');
 
 Theme._.ready(function () {
-  console.log('CART ready');
-  cartCount.init();
+  console.log('CART ready', cartCount.itemCount);
 });

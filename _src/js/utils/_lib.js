@@ -15,7 +15,7 @@ module.exports = {
     for (var k in obj) {
       if (obj.hasOwnProperty(k)) {
         ctx = ctx || obj[k];
-        callback.apply(ctx, [obj[k], k]);
+        callback.apply(ctx, [k, obj[k]]);
       }
     }
   },
@@ -43,10 +43,26 @@ module.exports = {
     return str[0].toUpperCase() + str.slice(1);
   },
   
+  // Turn 'my string' or 'my-string' into 'myString'
   camelCase: function (str) {
     return str.replace(/([\-\s]\w)/g, function (s) {
       return s[1].toUpperCase();
     });
+  },
+  
+  
+  /*
+    Number Functions
+  */
+  isNumber: function (n) {
+    return !isNaN(parseFloat(n)) && isFinite(n);
+  },
+  
+  /*
+    DOM Functions
+  */
+  insertAfter: function (el, refNode) {
+    refNode.parentNode.insertBefore(el, refNode.nextSibling);
   },
   
   /*
@@ -56,23 +72,10 @@ module.exports = {
   ready: function (callback, ctx) {
     if (typeof callback !== 'function') return;
     
-    if (document.readyState !== 'loading') {
+    if (document.readyState !== "loading") {
       callback.apply(ctx);
     } else {
-      document.addEventListener('DOMContentLoaded', function () {
-        callback.apply(ctx);
-      });
-    }
-  },
-  
-  // CUSTOM FUNC for seido to trigger things when the core is ready
-  readyCore: function (callback, ctx) {
-    if (typeof callback !== 'function') return;
-    
-    if (window.SeidoCore.ready) {
-      callback.apply(ctx);
-    } else {
-      window.SeidoCore.on('ready', function () {
+      document.addEventListener("DOMContentLoaded", function () {
         callback.apply(ctx);
       });
     }
