@@ -1,3 +1,4 @@
+*.DS_Store
 *.zip
 config.yml
 theme/config.yml
