@@ -1,0 +1,8 @@
+{%- assign link_list = linklists[block.settings.link_list] -%}
+{%- if link_list -%}
+  <ul class="footer-area-link-list">
+    {%- for link in link_list.links -%}
+      <li{% if link.active %} class="link-active"{% endif %}><a href="{{ link.url }}" title="{{ link.title | escape }}">{{ link.title }}</a></li>
+    {%- endfor -%}
+  </ul>
+{%- endif -%}

@@ -1,0 +1,21 @@
+{%- if block.settings.image -%}
+  {%- assign image_filename = block.settings.image | split: '/' | last | split: '.' | first | replace: '_',' ' | replace: '-',' ' | capitalize -%}
+  <figure class="footer-area-image">
+    {%- if block.settings.image_url != blank -%}<a href="{{ block.settings.image_url }}">{%- endif -%}
+
+    <img src="{{ block.settings.image | img_url: '200x' }}"
+      {% comment [IMAGE] - update sizes for your own needs %}
+      srcset="{{ block.settings.image | img_url: '200x' }} 100w"
+      sizes="100vw"
+      {% endcomment %}
+      alt="{{ block.settings.image.alt | default: image_filename | escape }}">
+
+    {%- if block.settings.image_url != blank -%}</a>{%- endif -%}
+
+    {%- if block.settings.image_caption != blank -%}
+    <figcaption>
+      {{ block.settings.image_caption }}
+    </figcaption>
+    {%- endif -%}
+  </figure>
+{%- endif -%}

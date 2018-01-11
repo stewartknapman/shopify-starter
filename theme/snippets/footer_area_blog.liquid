@@ -1,0 +1,18 @@
+{%- assign blog = blogs[block.settings.blog] -%}
+{%- if blog -%}
+  <ul class="footer-area-blog-list">
+    {%- for article in blog.articles limit:section.settings.blog_list_limit -%}
+      <li>
+        <h5><a href="{{ article.url }}">{{ article.title }}</a></h5>
+        {%- if section.settings.show_blog_list_excerpt -%}
+          <div class="footer-area-article-excerpt">
+            <p>
+              {{ article.excerpt_or_content | strip_html | truncatewords: 20 }}
+              <a href="{{ article.url }}">{{ 'articles.read_more' | t }}</a>
+            </p>
+          </div>
+        {%- endif -%}
+      </li>
+    {%- endfor -%}
+  </ul>
+{%- endif -%}

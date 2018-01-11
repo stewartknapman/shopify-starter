@@ -1,6 +1,8 @@
 {% comment %}
   TODO:
   - Newsletter sign up
+  - Social media links
+  - CC icons
   - Copyright date
   - Powered by link
   - Theme credits
@@ -9,69 +11,22 @@
 {%- if section.blocks.size > 0 -%}
 <section class="footer-content">
   <div class="container">
+
     {%- for block in section.blocks -%}
       {%- if block.type == 'area' -%}
       <div class="footer-area">
-        {%- if block.settings.heading != blank -%}
-          <h4 class="footer-area-heading">{{ block.settings.heading }}</h4>
-        {%- endif -%}
-        
-        {%- if block.settings.text != blank -%}
-          <div class="footer-area-text">{{ block.settings.text }}</div>
-        {%- endif -%}
-        
-        {%- assign link_list = linklists[block.settings.link_list] -%}
-        {%- if link_list -%}
-          <ul class="footer-area-link-list">
-            {%- for link in link_list.links -%}
-              <li{% if link.active %} class="link-active"{% endif %}><a href="{{ link.url }}" title="{{ link.title | escape }}">{{ link.title }}</a></li>
-            {%- endfor -%}
-          </ul>
-        {%- endif -%}
-        
-        {%- assign blog = blogs[block.settings.blog] -%}
-        {%- if blog -%}
-          <ul class="footer-area-blog-list">
-            {%- for article in blog.articles limit:section.settings.blog_list_limit -%}
-              <li>
-                <h5><a href="{{ article.url }}">{{ article.title }}</a></h5>
-                {%- if section.settings.show_blog_list_excerpt -%}
-                  <div class="footer-area-article-excerpt">
-                    <p>
-                      {{ article.excerpt_or_content | strip_html | truncatewords: 20 }}
-                      <a href="{{ article.url }}">{{ 'articles.read_more' | t }}</a>
-                    </p>
-                  </div>
-                {%- endif -%}
-              </li>
-            {%- endfor -%}
-          </ul>
-        {%- endif -%}
-        
-        {%- if block.settings.image -%}
-          {%- assign image_filename = block.settings.image | split: '/' | last | split: '.' | first | replace: '_',' ' | replace: '-',' ' | capitalize -%}
-          <figure class="footer-area-image">
-            {%- if block.settings.image_url != blank -%}<a href="{{ block.settings.image_url }}">{%- endif -%}
-              
-            <img src="{{ block.settings.image | img_url: '200x' }}"
-              {% comment [IMAGE] - update sizes for your own needs %}
-              srcset="{{ block.settings.image | img_url: '200x' }} 100w"
-              sizes="100vw"
-              {% endcomment %}
-              alt="{{ block.settings.image.alt | default: image_filename | escape }}">
-              
-            {%- if block.settings.image_url != blank -%}</a>{%- endif -%}
-            
-            {%- if block.settings.image_caption != blank -%}
-            <figcaption>
-              <p>{{ block.settings.image_caption }}</p>
-            </figcaption>
-            {%- endif -%}
-          </figure>
-        {%- endif -%}
+        {% include 'footer_area_heading' %}
+        {% include 'footer_area_text' %}
+        {% include 'footer_area_image' %}
+        {% include 'footer_area_linklist' %}
+        {% include 'footer_area_blog' %}
+        {% include 'footer_area_newsletter' %}
+        {% include 'footer_area_social_links' %}
+        {% include 'footer_area_payment_icons' %}
       </div>
       {%- endif -%}
     {%- endfor -%}
+
   </div>
 </section>
 {%- endif -%}
@@ -115,6 +70,10 @@
       "name": "Area",
       "settings": [
         {
+          "type": "header",
+          "content": "General"
+        },
+        {
           "type": "text",
           "id": "heading",
           "label": "Heading"
@@ -126,7 +85,18 @@
         },
         {
           "type": "header",
-          "content": "Lists"
+          "content": "Newsletter"
+        },
+        {
+          "type": "checkbox",
+          "id": "newsletter_form",
+          "label": "Show newsletter sign up form",
+          "info": "Find the newsletter form settings under the newsletter tab of the theme settings",
+          "default": false
+        },
+        {
+          "type": "header",
+          "content": "Link lists"
         },
         {
           "type": "link_list",
@@ -137,6 +107,20 @@
           "type": "blog",
           "id": "blog",
           "label": "Recent article list"
+        },
+        {
+          "type": "checkbox",
+          "id": "social_links",
+          "label": "Show social media links",
+          "info": "Add your social links under the social tab of the theme settings",
+          "default": false
+        },
+        {
+          "type": "checkbox",
+          "id": "payment_icons",
+          "label": "Show payment icons",
+          "info": "Show credit card and other payment icons based on your payment gateway settings",
+          "default": false
         },
         {
           "type": "header",
