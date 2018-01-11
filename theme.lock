@@ -29,8 +29,12 @@ assets/translations.min.js.liquid:
   development: 2017-01-15T13:38:58+13:00   1816e805281a08c41cea8bc64f87e5a9
 config/settings_schema.json:
   development: 2016-03-28T15:13:59+13:00   39cb96037bcad8c14f1945b6a4892abc
+layout/styleguide.liquid:
+  development: 2018-01-12T09:07:35+13:00   728dd849c34d007434c3e24e44ed504e
+layout/theme.liquid:
+  development: 2018-01-12T08:52:41+13:00   66bc36d0280eefd5be6e8ab6527aa172
 sections/footer.liquid:
-  development: 2018-01-11T15:43:36+13:00   0813a76f762f7150a8b90dfccea2e36a
+  development: 2018-01-12T08:58:55+13:00   7bf2dd836d90bcb41e66cc3d78bce6d0
 snippets/footer_area_blog.liquid:
   development: 2018-01-11T14:48:18+13:00   2590c5fc2dac6984b11cc6a471d3f6ba
 snippets/footer_area_heading.liquid:
@@ -47,7 +51,11 @@ snippets/footer_area_social_links.liquid:
   development: 2018-01-11T15:23:52+13:00   68b329da9893e34099c7d8ad5cb9c940
 snippets/footer_area_text.liquid:
   development: 2018-01-11T14:47:06+13:00   4e694db91699644cfcad42d9963cf342
-snippets/javascript.liquid:
-  development: 2018-01-11T16:00:45+13:00   760353738c8e24811eb91e640bce6a7a
+snippets/footer_credits.liquid:
+  development: 2018-01-12T08:58:28+13:00   72e57e45d1626b91cf76ff2ce483d97a
+snippets/theme-scripts.liquid:
+  development: 2018-01-12T08:52:16+13:00   760353738c8e24811eb91e640bce6a7a
+snippets/theme-styles.liquid:
+  development: 2018-01-12T09:52:43+13:00   d36da13e1da75d06a75166398fd676dc
 templates/index.liquid:
   development: 2018-01-11T16:39:45+13:00   b94df6fe29be03b52d28c5bf069bda6d

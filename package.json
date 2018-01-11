@@ -6,8 +6,9 @@
   "scripts": {
     "build": "npm-run-all --parallel *:watch",
     "css:watch": "watch 'npm run css:build' _src/scss/",
-    "css:build": "npm-run-all --parallel css:core css:styleguide",
-    "css:core": "sassimport _src/scss/styles.scss -o theme/assets/styles.scss.liquid",
+    "css:build": "npm-run-all --parallel css:core css:styles css:styleguide",
+    "css:core": "sassimport _src/scss/core.scss -o theme/assets/core.scss.liquid",
+    "css:styles": "sassimport _src/scss/styles.scss -o theme/assets/styles.scss.liquid",
     "css:styleguide": "sassimport _src/scss/styleguide.scss -o theme/assets/styleguide.scss.liquid",
     "js:watch": "watch 'npm run js:test' ./_src/js/ ./_tests/",
     "js:test": "mocha _tests/",

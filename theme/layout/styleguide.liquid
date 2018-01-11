@@ -1,2 +1,36 @@
-{{ content_for_header }}
-{{ content_for_layout }}
+<!DOCTYPE html>
+<html class="no-js" lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>{{ page_title | escape }}</title>
+
+  {{ 'styleguide.scss.css' | asset_url | stylesheet_tag }}
+  {% include 'theme-scripts' %}
+
+  {{ content_for_header }}
+</head>
+<body class="template-{{ template | split:'.' | first }}{% if template contains '.' %} template-{{ template | replace:'.','-' }}{% endif %}">
+  <header class="site-header">
+    {% section 'header' %}
+  </header>
+
+  <main class="site-main" role="main">
+    {% comment %}
+      We need content_for_layout but we don't want it for the styleguide so capture it and just don't output it.
+    {% endcomment %}
+    {% capture content %}{{ content_for_layout }}{% endcapture %}
+
+    {% comment %}
+      Actual content for styleguide
+    {% endcomment %}
+    ...
+  </main>
+
+  <footer class="site-footer">
+    {% include 'footer_credits' %}
+  </footer>
+</body>
+</html>

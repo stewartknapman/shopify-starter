@@ -7,8 +7,8 @@
 
   <title>{{ page_title | escape }}</title>
 
-  {{ 'styles.scss.css' | asset_url | stylesheet_tag }}
-  {% include 'javascript' %}
+  {% include 'theme-styles' %}
+  {% include 'theme-scripts' %}
 
   {{ content_for_header }}
 </head>
@@ -16,11 +16,11 @@
   <header class="site-header">
     {% section 'header' %}
   </header>
-  
+
   <main class="site-main" role="main">
     {{ content_for_layout }}
   </main>
-  
+
   <footer class="site-footer">
     {% section 'footer' %}
   </footer>

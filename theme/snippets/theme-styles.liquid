@@ -1,0 +1,50 @@
+{% comment %}
+
+  *** Stylesheets ***
+
+  Include the most critical CSS first. But as this is a theme and we don't know
+  or have control over what content is above the fold we only include foundational
+  styles for common elements such as typograhpy and buttons.
+  It also includes the header styles as we know this will always be above the fold.
+  However, because we don't have access to build tools to update this when the
+  theme is run on Shopify or edited from the Shopify online editor, this is not
+  inlined as critical CSS normaly is. Instead this is referenecd as a render
+  blocking link so there is no flash of unstyled elements. The link is preloaded
+  if that is available for increased speed.
+
+  The rest of the themes non-critical styles are loaded asynchronously.
+  Reference: https://csabapalfi.github.io/eliminate-render-blocking/
+
+  `core.scss.css`: The base/critical styles for the theme
+  `styles.scss.css`: The main/non-critical styles for the theme
+
+  *** Custom Fonts ***
+
+  TODO: A note about how to best load custom fonts for those that need to do it
+
+{% endcomment %}
+
+
+<!-- <link rel="preload" href="{{ 'core.scss.css' | asset_url }}" as="style"> -->
+
+
+
+
+<!-- {{ 'styles.scss.css' | asset_url | stylesheet_tag }} -->
+
+
+
+
+
+
+
+
+
+
+
+<!-- <link rel="preload" href="path/to/mystylesheet.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="path/to/mystylesheet.css"></noscript>
+<script>
+/*! loadCSS rel=preload polyfill. [c]2017 Filament Group, Inc. MIT License */
+(function(){ ... }());
+</script> -->
