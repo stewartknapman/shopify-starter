@@ -1,11 +1,13 @@
-/*
-  Globals & Includes
-  ---
-*/
+// Globals & Includes
+// ---
 
 // Include css classes in output.
 // Set to false if you want to use mixins and set your own classes.
 $include_classes: true !default;
+
+// Include base styles
+// Useful for building components when you don't want to effect the whole page
+$include_base: true !default;
 
 // Include fluid type settings:
 //  - https://www.smashingmagazine.com/2016/05/fluid-typography/
@@ -39,12 +41,10 @@ $include_breakpoint_sizes: true !default;
 // Set to true if you want to include a theme.
 $include_theme_wireframe: false !default;
 
-/*
-  Breakpoints
-  ---
-  
-  xs is implied by whatever is less than sm
-*/
+// Breakpoints
+// ---
+//
+// xs is implied by whatever is less than sm
 $breakpoint_sm:     37.5em !default;  // 600px @ 16px
 $breakpoint_md:     60em !default;    // 960px @ 16px
 $breakpoint_lg:     75em !default;    // 1200px @ 16px
@@ -54,19 +54,17 @@ $breakpoint_xl:     93.75em !default; // 1500px @ 16px
 $breakpoint_tables: $breakpoint_sm !default;
 
 $breakpoint_sizes: (xs false) (sm $breakpoint_sm) (md $breakpoint_md) (lg $breakpoint_lg) (xl $breakpoint_xl) !default;
-/*
-  [Breaks in < 3.3]
-  $breakpoint_sizes: (xs:false, sm:$breakpoint_sm, md:$breakpoint_md, lg:$breakpoint_lg, xl:$breakpoint_xl) !default;
-*/
 
-/*
-  Type
-  ---
-  
-  Target / Context:
-  Foundtion sets the body font size at 100% which is usually 16px
-  A standard line height of 1.5ems on the body (@16px) is 24px
-*/
+// [Breaks in >= 3.3]
+// $breakpoint_sizes: (xs:false, sm:$breakpoint_sm, md:$breakpoint_md, lg:$breakpoint_lg, xl:$breakpoint_xl) !default;
+
+
+//   Type
+//   ---
+//
+//   Target / Context:
+//   Foundtion sets the body font size at 100% which is usually 16px
+//   A standard line height of 1.5ems on the body (@16px) is 24px
 
 // Heading and component sizes
 $font_size_base:  1em !default;
@@ -92,8 +90,8 @@ $fluid_type_min_vw:     20em !default;
 $fluid_type_max_vw:     87.5em !default;
 $font_size_min_value:   $font_size_base !default;
 $font_size_max_value:   1.5em !default;
-$line_height_min_value: 1.3em !default;
-$line_height_max_value: 1.5em !default;
+$line_height_min_value: 1.3 !default;
+$line_height_max_value: 1.5 !default;
 
 $max_reading_length: 35em !default;
 
@@ -122,10 +120,8 @@ $font_style_pullquote: italic !default;
 $underline_weight: 1px !default; // 2px !default;
 $underline_position: 95% !default;
 
-/*
-  Grids
-  ---
-*/
+// Grids
+// ---
 
 $container_width_fluid: 100% !default;
 $container_width_xs: 95% !default;
@@ -151,15 +147,11 @@ $grid_gutter_xl: $grid_gutter_lg !default;
 $grid_gutter_sizes: (xs $grid_gutter_xs) (sm $grid_gutter_sm) (md $grid_gutter_md) (lg $grid_gutter_lg) (xl $grid_gutter_xl) !default;
 
 $col_sizes: (5 5%) (10 10%) (15 15%) (20 20%) (25 25%) (30 30%) (40 40%) (50 50%) (60 60%) (70 70%) (75 75%) (80 80%) (85 85%) (90 90%) (95 95%) (100 100%) (quarter 25%) (half 50%) (three-quarters 75%) (full 100%) (one-third 33.333%) (one-sixth 16.666%) (two-thirds 66.666%) !default;
-/*
-  [Breaks in < 3.3]
-$col_sizes: (5:5%, 10:10%, 15:15%, 20:20%, 25:25%, 30:30%, 40:40%, 50:50%, 60:60%, 70:70%, 75:75%, 80:80%, 85:85%, 90:90%, 95:95%, 100:100%, quarter:25%, half:50%, three-quarters:75%, full:100%, one-third:33.333%, two-thirds:66.666%) !default;
-*/
+// [Breaks in >= 3.3]
+// $col_sizes: (5:5%, 10:10%, 15:15%, 20:20%, 25:25%, 30:30%, 40:40%, 50:50%, 60:60%, 70:70%, 75:75%, 80:80%, 85:85%, 90:90%, 95:95%, 100:100%, quarter:25%, half:50%, three-quarters:75%, full:100%, one-third:33.333%, two-thirds:66.666%) !default;
 
-/*
-  Colours
-  ---
-*/
+// Colours
+// ---
 
 $highlight_color: #00b8e3 !default;
 
@@ -186,10 +178,8 @@ $background_hover_color_button_primary: darken($highlight_color, 10%) !default;
 $text_color_button_primary: if(lightness($background_color_button_primary) > 55%, $text_color, lighten($background_color, 45%)) !default;
 $text_hover_color_button_primary: $text_color_button_primary !default;
 
-/*
-  Borders
-  ---
-*/
+// Borders
+// ---
 
 $border_color: #eee !default;
 $border_size: 1px !default;
@@ -223,17 +213,16 @@ $border_size_blockquote: $border_size * 4 !default;
 $border_style_blockquote: $border_style !default;
 
 
-/*
-  Misc
-  ---
-*/
+// Misc
+// ---
 
 // Transition durations.
 // These are here as a nicety for things like link hovers and font size increases.
 // If you don't want the transitions then set them to `false`
 $transition_duration_base:      .3s !default;
 $transition_duration_fontsize:  $transition_duration_base !default;
-$transition_duration_hover:     $transition_duration_base !default;@mixin clearfix {
+$transition_duration_hover:     $transition_duration_base !default;
+@mixin clearfix {
   &:after {
     content: "";
     display: table;
@@ -261,9 +250,7 @@ $transition_duration_hover:     $transition_duration_base !default;@mixin clearf
   option + option {
     margin-top: 0;
   }
-}/*
-  Containers
-*/
+}// Containers
 
 @mixin container-fluid {
   overflow: hidden;
@@ -301,7 +288,7 @@ $transition_duration_hover:     $transition_duration_base !default;@mixin clearf
   }
 }
 
-/* Grid Rows */
+// Grid Rows
 @mixin build-grid-row ($grid_gutter_key, $grid_gutter_size, $breakpoint_key, $breakpoint) {
   @if ($grid_gutter_key == $breakpoint_key) {
     @if ($breakpoint) {
@@ -315,7 +302,7 @@ $transition_duration_hover:     $transition_duration_base !default;@mixin clearf
     }
   }
 }
-  
+
 @mixin build-grid-rows ($breakpoint_key, $breakpoint) {
   @each $grid_gutter in $grid_gutter_sizes {
     @include build-grid-row (nth($grid_gutter, 1), nth($grid_gutter, 2), $breakpoint_key, $breakpoint);
@@ -327,14 +314,14 @@ $transition_duration_hover:     $transition_duration_base !default;@mixin clearf
   @each $breakpoint in $breakpoint_sizes {
     @include build-grid-rows (nth($breakpoint, 1), nth($breakpoint, 2));
   }
-  
+
   margin-top: 0;
   > * {
     margin-top: 0;
   }
 }
 
-/* Grid cols */
+// Grid cols
 @mixin build-grid-col-gutter ($grid_gutter_key, $grid_gutter_size, $breakpoint_key, $breakpoint) {
   @if ($grid_gutter_key == $breakpoint_key) {
     @if ($breakpoint) {
@@ -348,7 +335,7 @@ $transition_duration_hover:     $transition_duration_base !default;@mixin clearf
     }
   }
 }
-  
+
 @mixin build-grid-col-gutters ($breakpoint_key, $breakpoint) {
   @each $grid_gutter in $grid_gutter_sizes {
     @include build-grid-col-gutter (nth($grid_gutter, 1), nth($grid_gutter, 2), $breakpoint_key, $breakpoint);
@@ -396,11 +383,11 @@ $transition_duration_hover:     $transition_duration_base !default;@mixin clearf
   .grid-col.grid-col-offset-#{$col_key}-#{$breakpoint_key} {
     @include grid-col-offset($col_size, $breakpoint, left);
   }
-  
+
   .grid-col-rev.grid-col-offset-#{$col_key}-#{$breakpoint_key} {
     @include grid-col-offset($col_size, $breakpoint, right);
   }
-  
+
   .grid-col-#{$col_key}-#{$breakpoint_key} {
     @include grid-col-size($col_size, $breakpoint);
   }
@@ -411,14 +398,14 @@ $transition_duration_hover:     $transition_duration_base !default;@mixin clearf
     @include build-grid-col (nth($col, 1), nth($col, 2), $breakpoint_key, $breakpoint);
   }
 }
-/*
-  [Breaks in < 3.3]
-@mixin build-grid-cols ($breakpoint_key, $breakpoint) {
-  @each $col_key, $col_size in $col_sizes {
-    @include build-grid-col ($col_key, $col_size, $breakpoint_key, $breakpoint);
-  }
-}
-*/// `strip-unit()` function by Hugo Giraudel
+
+// [Breaks in >= 3.3]
+// @mixin build-grid-cols ($breakpoint_key, $breakpoint) {
+//   @each $col_key, $col_size in $col_sizes {
+//     @include build-grid-col ($col_key, $col_size, $breakpoint_key, $breakpoint);
+//   }
+// }
+// `strip-unit()` function by Hugo Giraudel
 @function strip-unit($value) {
   @return $value / ($value * 0 + 1);
 }
@@ -513,15 +500,14 @@ $transition_duration_hover:     $transition_duration_base !default;@mixin clearf
 }
 
 @mixin force-redraw {
-  /* 
-    Arbitrary webkit-only property that forces a redraw
-    Fixes currentColor bug
-    see: http://stackoverflow.com/questions/36046185/how-to-hack-around-linear-gradient-with-currentcolor-bug-in-chrome
-  */
+  // Arbitrary webkit-only property that forces a redraw
+  // Fixes currentColor bug
+  // see: http://stackoverflow.com/questions/36046185/how-to-hack-around-linear-gradient-with-currentcolor-bug-in-chrome
   @if ($include_pretty_underlines) {
     -webkit-margin-start: -.001px;
   }
-}@mixin list-unstyled {
+}
+@mixin list-unstyled {
   padding: 0;
   list-style: none;
 }
@@ -621,28 +607,26 @@ $transition_duration_hover:     $transition_duration_base !default;@mixin clearf
 
 @mixin button-primary {
   @include button-style($text_color_button_primary, $background_color_button_primary, $border_color_button_primary, $text_hover_color_button_primary, $background_hover_color_button_primary, $border_color_hover_button_primary);
-}/*
-  Responsive tables base
-*/
+}// Responsive tables base
 @mixin responsive-table {
   @if $include_tables_responsive {
     table {
       display: block;
     }
-    
+
     thead {
       display: none;
     }
-    
+
     tbody, tfoot, tr, td, th {
       display: block;
       margin-top: 0;
     }
-  
+
     tr {
       padding: ($gutter_horizontal / 2) ($gutter_vertical / 2);
     }
-    
+
     td:before {
       content: attr(title);
       display: inline-block;
@@ -652,9 +636,7 @@ $transition_duration_hover:     $transition_duration_base !default;@mixin clearf
   }
 }
 
-/*
-  Stripes
-*/
+// Stripes
 @mixin table-stripes {
   tbody tr{
     transition: $transition_duration_hover;
@@ -667,16 +649,14 @@ $transition_duration_hover:     $transition_duration_base !default;@mixin clearf
   }
 }
 
-/*
-  Borders
-*/
+// Borders
 @mixin table-borders-horizontal {
   thead,
   tfoot {
     border-top: $border_color_table $border_style_table $border_size_table_lg;
     border-bottom: $border_color_table $border_style_table $border_size_table_lg;
   }
-  
+
   tbody tr {
     border-bottom: $border_color_table $border_style_table $border_size_table;
     &:last-child {
@@ -716,7 +696,8 @@ $transition_duration_hover:     $transition_duration_base !default;@mixin clearf
 @mixin table-borders {
   @include table-borders-horizontal;
   @include table-borders-vertical;
-}@mixin hero-block {
+}
+@mixin hero-block {
   @include clearfix;
   padding-top: ($gutter_horizontal * 2);
   padding-bottom: ($gutter_horizontal * 2);
@@ -762,361 +743,388 @@ $transition_duration_hover:     $transition_duration_base !default;@mixin clearf
   width: 100%;
   height: 100%;
   border: 0;
-}/* Block level elements and resets */
+}@if $include_base {
+  // Block level elements and resets
+  html {
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    box-sizing: border-box;
+  }
 
-html {
-  -ms-text-size-adjust: 100%;
-  -webkit-text-size-adjust: 100%;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  box-sizing: border-box;
-}
+  *, *:before, *:after {
+    box-sizing: inherit;
+    padding: 0;
+    margin: 0;
+  }
 
-*, *:before, *:after {
-  box-sizing: inherit;
-  padding: 0;
-  margin: 0;
-}
+  @include lobotomized-owl($gutter_horizontal);
 
-@include lobotomized-owl($gutter_horizontal);
+  html, body {
+    height: 100%;
+    margin: 0;
+  }
 
-html, body {
-  height: 100%;
-  margin: 0;
-}
+  img {
+    max-width: 100%;
+  }
 
-img {
-  max-width: 100%;
-}
+  svg {
+    fill: currentColor;
+  }
 
-svg {
-  fill: currentColor;
-}
-
-::selection {
-  color: $selection_color;
-  background: $selection_bg_color;
-  text-shadow: none;
-}html {
-  @include fluid-lock(font-size, $fluid_type_min_vw, $fluid_type_max_vw, $font_size_min_value, $font_size_max_value);
-  @include fluid-lock(line-height, $fluid_type_min_vw, $fluid_type_max_vw, $line_height_min_value, $line_height_max_value);
-}
-
-body {
-  font-family: $font_family_body;
-  font-weight: $font_weight_base;
-  color: $text_color;
-  
-  @if $transition_duration_fontsize {
-    transition: font-size $transition_duration_fontsize;
+  ::selection {
+    color: $selection_color;
+    background: $selection_bg_color;
+    text-shadow: none;
   }
 }
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  @include heading-style;
-}
-
-h1 {
-  @include font-size-xxl;
-}
-h2 {
-  @include font-size-xl;
-}
-h3 {
-  @include font-size-lg;
-}
-h4 {
-  @include font-size-md;
-}
-h5 {
-  @include font-size-sm;
-}
-h6,
-small {
-  @include font-size-xs;
-}
-
-// -webkit-user-stylesheets adjusts the size of h1's nested in these block elements, so we do as well.
-// Future note: it would be good to use :any() https://developer.mozilla.org/en-US/docs/Web/CSS/%3Aany
-article, aside, nav, section {
-  h1 {
-    @include font-size-xl;
+@if $include_base {
+  html {
+    @include fluid-lock(font-size, $fluid_type_min_vw, $fluid_type_max_vw, $font_size_min_value, $font_size_max_value);
+    @include fluid-lock(line-height, $fluid_type_min_vw, $fluid_type_max_vw, $line_height_min_value, $line_height_max_value);
   }
-  article, aside, nav, section {
-    h1 {
-      @include font-size-lg;
+
+  body {
+    font-family: $font_family_body;
+    font-weight: $font_weight_base;
+    color: $text_color;
+
+    @if $transition_duration_fontsize {
+      transition: font-size $transition_duration_fontsize;
     }
   }
-}
 
-blockquote {
-  border-left: $border_color_blockquote $border_size_blockquote $border_style_blockquote;
-  padding-left: $gutter_vertical;
-}
-
-strong {
-  font-weight: $font_weight_bold;
-}
-
-hr {
-  border: none;
-  border-bottom: $border_color $border_size $border_style;
-}a {
-  color: $link_color;
-  
-  &:hover,
-  &:active {
-    color: $link_color_hover;
-    @include force-redraw;
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @include heading-style;
   }
-  
-  @if ($transition_duration_hover) {
-    transition: $transition_duration_hover;
+
+  h1 {
+    @include font-size-xxl;
   }
-  
-  @if ($include_pretty_underlines) {
-    @include pretty-underlines();
+  h2 {
+    @include font-size-xl;
   }
-  
-  svg {
-    vertical-align: top;
+  h3 {
+    @include font-size-lg;
   }
-}
-
-a:focus {
-  outline: none;
-  color: $selection_color;
-  background: rgba($selection_bg_color, 0.3);
-  box-shadow: 0 0 0 0.2em rgba($selection_bg_color, 0.3);
-  text-shadow: none;
-}
-
-figure > a:focus {
-  outline-color: rgba($selection_bg_color, 0.3);
-}
-
-h1 a,
-h2 a,
-h3 a,
-h4 a,
-h5 a,
-h6 a {
-  text-decoration: none;
-  color: inherit;
-  @if ($include_pretty_underlines) {
-    background: none;
+  h4 {
+    @include font-size-md;
   }
-}ul {
-  padding-left: 1em;
-}
-
-ol {
-  padding-left: 1.5em; // numbers need more room than dots
-}
-
-li {
-  margin-top: 0;
-}
-
-dd {
-  margin-top: 0;
-  margin-left: 2em;
-}fieldset {
-  border: none;
-  padding: 0;
-}
-
-legend {
-  width: 100%;
-  padding-bottom: ($gutter_horizontal / 4);
-  border-bottom: $border_color_input $border_size_input $border_style_input;
-}
-
-label {
-  display: inline-block;
-}
-
-label + label {
-  margin-top: 0;
-  margin-left: $gutter_vertical;
-}
-
-label + input,
-label + textarea {
-  margin-top: ($gutter_horizontal / 4);
-}
-
-label + select {
-  margin-top: 0;
-  margin-left: ($gutter_vertical / 2);
-}
-
-select {
-  display: inline-block;
-  font-size: $font_size_forms;
-  background-color: #fff;
-}
-
-textarea {
-  min-width: 100%;
-  max-width: 100%;
-  resize: vertical;
-}
-
-input[type=text],
-input[type=email],
-input[type=password],
-input[type=url],
-input[type=tel],
-input[type=text],
-input[type=number],
-input[type=search],
-input[type=time],
-input[type=week],
-input[type=month],
-input[type=date],
-input[type=datetime],
-input[type=datetime-local],
-input[type=checkbox],
-input[type=radio],
-textarea,
-select {
-  color: rgba($text_color, .8);
-  border: $border_color_input $border_size_input $border_style_input;
-  border-radius: $border_radius_input;
-  outline: none;
-  transition: $transition_duration_base;
-  &:focus {
-    color: $text_color;
-    border-color: $highlight_color;
-    box-shadow: 0 0 6px rgba($highlight_color, .6);
+  h5 {
+    @include font-size-sm;
   }
-}
-
-input[type=text],
-input[type=email],
-input[type=password],
-input[type=url],
-input[type=tel],
-input[type=text],
-input[type=number],
-input[type=search],
-input[type=time],
-input[type=week],
-input[type=month],
-input[type=date],
-input[type=datetime],
-input[type=datetime-local],
-textarea {
-  -webkit-appearance: none;
-  font-size: $font_size_forms;
-  line-height: $line_height_base;
-  font-weight: $font_weight_base;
-  display: block;
-  padding: ($gutter_horizontal / 4) ($gutter_vertical / 2);
-}
-
-input[type=text],
-input[type=email],
-input[type=password],
-input[type=url],
-input[type=tel],
-input[type=text],
-input[type=number],
-input[type=range],
-textarea {
-  width: 100%;
-}
-
-input[type=search] {
-  border-radius: 1.5em; // ???
-}
-
-input[type=checkbox],
-input[type=radio] {
-  vertical-align: middle;
-}
-
-input[type=radio] {
-  border-radius: 50%;
-}
-
-input[type=file] {  
-  &:focus {
-    outline: none;
-    color: $text_color;
-    border-color: $highlight_color;
-    box-shadow: 0 0 6px rgba($highlight_color, .6);
+  h6,
+  small {
+    @include font-size-xs;
   }
-}input[type=button],
-input[type=reset],
-input[type=submit],
-button {
-  @include button-base;
-}figure {
-  @include lobotomized-owl($gutter_horizontal/2);
-  
-  img {
-    display: block;
-  }
-  
-  @if ($include_figure_link_hover) {
-    > a:hover + figcaption {
-      h1 a,
-      h2 a,
-      h3 a,
-      h4 a,
-      h5 a,
-      h6 a,
-      a {
-        color: $link_color_hover;
-        @include force-redraw;
+
+  // -webkit-user-stylesheets adjusts the size of h1's nested in these block elements, so we do as well.
+  // Future note: it would be good to use :any() https://developer.mozilla.org/en-US/docs/Web/CSS/%3Aany
+  article, aside, nav, section {
+    h1 {
+      @include font-size-xl;
+    }
+    article, aside, nav, section {
+      h1 {
+        @include font-size-lg;
       }
     }
   }
-  
-  .grid-col &,
-  .grid-col-rev & {
-    margin-top: $gutter_horizontal;
+
+  blockquote {
+    border-left: $border_color_blockquote $border_size_blockquote $border_style_blockquote;
+    padding-left: $gutter_vertical;
   }
-}table {
-  width: 100%;
-  table-layout: fixed;
-  border-collapse: collapse;
-  text-align: left;
-  
-  @media (min-width: $breakpoint_tables) {
-    td, th {
-      padding: ($gutter_horizontal / 2) ($gutter_vertical / 2);
+
+  strong {
+    font-weight: $font_weight_bold;
+  }
+
+  hr {
+    border: none;
+    border-bottom: $border_color $border_size $border_style;
+  }
+}
+@if $include_base {
+  a {
+    color: $link_color;
+
+    &:hover,
+    &:active {
+      color: $link_color_hover;
+      @include force-redraw;
+    }
+
+    @if ($transition_duration_hover) {
+      transition: $transition_duration_hover;
+    }
+
+    @if ($include_pretty_underlines) {
+      @include pretty-underlines();
+    }
+
+    svg {
+      vertical-align: top;
     }
   }
-  
-  @media (max-width: $breakpoint_tables) {
-    @include responsive-table;
+
+  a:focus {
+    outline: none;
+    color: $selection_color;
+    background: rgba($selection_bg_color, 0.3);
+    box-shadow: 0 0 0 0.2em rgba($selection_bg_color, 0.3);
+    text-shadow: none;
   }
-}@if $include_grid and $include_classes {
-  
+
+  figure > a:focus {
+    outline-color: rgba($selection_bg_color, 0.3);
+  }
+
+  h1 a,
+  h2 a,
+  h3 a,
+  h4 a,
+  h5 a,
+  h6 a {
+    text-decoration: none;
+    color: inherit;
+    @if ($include_pretty_underlines) {
+      background: none;
+    }
+  }
+}
+@if $include_base {
+  ul {
+    padding-left: 1em;
+  }
+
+  ol {
+    padding-left: 1.5em; // numbers need more room than dots
+  }
+
+  li {
+    margin-top: 0;
+    > ul,
+    > ol {
+      margin-top: 0;
+    }
+  }
+
+  dd {
+    margin-top: 0;
+    margin-left: 2em;
+  }
+}
+@if $include_base {
+  fieldset {
+    border: none;
+    padding: 0;
+  }
+
+  legend {
+    width: 100%;
+    padding-bottom: ($gutter_horizontal / 4);
+    border-bottom: $border_color_input $border_size_input $border_style_input;
+  }
+
+  label {
+    display: inline-block;
+  }
+
+  label + label {
+    margin-top: 0;
+    margin-left: $gutter_vertical;
+  }
+
+  label + input,
+  label + textarea {
+    margin-top: ($gutter_horizontal / 4);
+  }
+
+  label + select {
+    margin-top: 0;
+    margin-left: ($gutter_vertical / 2);
+  }
+
+  select {
+    display: inline-block;
+    font-size: $font_size_forms;
+    background-color: #fff;
+  }
+
+  textarea {
+    min-width: 100%;
+    max-width: 100%;
+    resize: vertical;
+  }
+
+  input[type=text],
+  input[type=email],
+  input[type=password],
+  input[type=url],
+  input[type=tel],
+  input[type=text],
+  input[type=number],
+  input[type=search],
+  input[type=time],
+  input[type=week],
+  input[type=month],
+  input[type=date],
+  input[type=datetime],
+  input[type=datetime-local],
+  input[type=checkbox],
+  input[type=radio],
+  textarea,
+  select {
+    color: rgba($text_color, .8);
+    border: $border_color_input $border_size_input $border_style_input;
+    border-radius: $border_radius_input;
+    outline: none;
+    transition: $transition_duration_base;
+    &:focus {
+      color: $text_color;
+      border-color: $highlight_color;
+      box-shadow: 0 0 6px rgba($highlight_color, .6);
+    }
+  }
+
+  input[type=text],
+  input[type=email],
+  input[type=password],
+  input[type=url],
+  input[type=tel],
+  input[type=text],
+  input[type=number],
+  input[type=search],
+  input[type=time],
+  input[type=week],
+  input[type=month],
+  input[type=date],
+  input[type=datetime],
+  input[type=datetime-local],
+  textarea {
+    -webkit-appearance: none;
+    font-size: $font_size_forms;
+    line-height: $line_height_base;
+    font-weight: $font_weight_base;
+    display: block;
+    padding: ($gutter_horizontal / 4) ($gutter_vertical / 2);
+  }
+
+  input[type=text],
+  input[type=email],
+  input[type=password],
+  input[type=url],
+  input[type=tel],
+  input[type=text],
+  input[type=number],
+  input[type=range],
+  textarea {
+    width: 100%;
+  }
+
+  input[type=search] {
+    border-radius: 1.5em; // ???
+  }
+
+  input[type=checkbox],
+  input[type=radio] {
+    vertical-align: middle;
+  }
+
+  input[type=radio] {
+    border-radius: 50%;
+  }
+
+  input[type=file] {
+    &:focus {
+      outline: none;
+      color: $text_color;
+      border-color: $highlight_color;
+      box-shadow: 0 0 6px rgba($highlight_color, .6);
+    }
+  }
+}
+@if $include_base {
+  input[type=button],
+  input[type=reset],
+  input[type=submit],
+  button {
+    @include button-base;
+  }
+}
+@if $include_base {
+  figure {
+    @include lobotomized-owl($gutter_horizontal/2);
+
+    img {
+      display: block;
+    }
+
+    @if ($include_figure_link_hover) {
+      > a:hover + figcaption {
+        h1 a,
+        h2 a,
+        h3 a,
+        h4 a,
+        h5 a,
+        h6 a,
+        a {
+          color: $link_color_hover;
+          @include force-redraw;
+        }
+      }
+    }
+
+    .grid-col &,
+    .grid-col-rev & {
+      margin-top: $gutter_horizontal;
+    }
+  }
+}
+@if $include_base {
+  table {
+    width: 100%;
+    table-layout: fixed;
+    border-collapse: collapse;
+    text-align: left;
+
+    @media (min-width: $breakpoint_tables) {
+      td, th {
+        padding: ($gutter_horizontal / 2) ($gutter_vertical / 2);
+      }
+    }
+
+    @media (max-width: $breakpoint_tables) {
+      @include responsive-table;
+    }
+  }
+}
+@if $include_grid and $include_classes {
+
   .container-fluid {
     @include container-fluid;
   }
-  
+
   .container {
     @include container;
   }
-  
+
   .grid-row {
     @include grid-row;
   }
-  
+
   .grid-col {
     @include grid-col;
   }
-  
+
   .grid-col-rev {
     @include grid-col-rev;
   }
@@ -1125,17 +1133,14 @@ button {
     @include build-grid-cols (nth($breakpoint, 1), nth($breakpoint, 2));
   }
 
-/*
-  [Breaks in < 3.3]
-  @each $breakpoint_key, $breakpoint in $breakpoint_sizes {
-    @include build-grid-cols ($breakpoint_key, $breakpoint);
-  }
-*/
-}/*
-  Pass media queries to JS: https://adactio.com/journal/5429
-  We do this so we are using one consitant source for this value.
-  But also slightly tweaked because Chrome stopped letting us collect the value if the content was inside display:none;
-*/
+// [Breaks in >= 3.3]
+// @each $breakpoint_key, $breakpoint in $breakpoint_sizes {
+//   @include build-grid-cols ($breakpoint_key, $breakpoint);
+// }
+}
+// Pass media queries to JS: https://adactio.com/journal/5429
+// We do this so we are using one consitant source for this value.
+// But also slightly tweaked because Chrome stopped letting us collect the value if the content was inside display:none;
 
 @if $include_breakpoint_sizes {
   body:after {
@@ -1145,7 +1150,7 @@ button {
     height: 0;
     margin-top: ($line_height_base * -1em);
     padding: 0;
-    
+
     @each $breakpoint in $breakpoint_sizes {
       @if (nth($breakpoint, 2)) {
         @media (min-width: nth($breakpoint, 2)) {
@@ -1156,12 +1161,13 @@ button {
       }
     }
   }
-}@if $include_type and $include_classes {
-  
+}
+@if $include_type and $include_classes {
+
   .reading-length {
     @include reading-length;
   }
-  
+
   .font-size-xs { @include font-size-xs; } // h6
   .font-size-sm { @include font-size-sm; } // h5
   .font-size-md { @include font-size-md; } // h4
@@ -1169,11 +1175,9 @@ button {
   .font-size-xl { @include font-size-xl; } // h2
   .font-size-xxl { @include font-size-xxl; } // h1
 
-/*
-  [Breaks in < 3.3]
-  @each $breakpoint_key, $breakpoint in $breakpoint_sizes {
-*/
-  
+// [Breaks in >= 3.3]
+// @each $breakpoint_key, $breakpoint in $breakpoint_sizes {
+
   @each $breakpoint in $breakpoint_sizes {
     @each $alignment in (left, center, right) {
       .text-align-#{$alignment}-#{nth($breakpoint, 1)} {
@@ -1181,11 +1185,12 @@ button {
       }
     }
   }
-  
+
   .pull-quote {
     @include pull-quote;
   }
-}@if $include_lists and $include_classes {
+}
+@if $include_lists and $include_classes {
   
   ol.list-unstyled,
   ul.list-unstyled {
