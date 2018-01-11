@@ -7,6 +7,8 @@ assets/core.js:
   development: 2018-01-11T15:56:25+13:00   3958e0ff572fe9ac4dcdf4e086154112
 assets/core.min.js:
   development: 2018-01-11T15:56:27+13:00   e20ef3cf1a3847943ba4e2ca00b5e509
+assets/core.scss.liquid:
+  development: 2018-01-12T11:30:41+13:00   2e70d97b13d9309f41436058e29237e4
 assets/polyfills.js:
   development: 2018-01-11T15:56:25+13:00   3e3f36d7b907756c29c02ecbceeedc22
 assets/polyfills.min.js:
@@ -32,7 +34,7 @@ config/settings_schema.json:
 layout/styleguide.liquid:
   development: 2018-01-12T09:07:35+13:00   728dd849c34d007434c3e24e44ed504e
 layout/theme.liquid:
-  development: 2018-01-12T08:52:41+13:00   66bc36d0280eefd5be6e8ab6527aa172
+  development: 2018-01-12T11:45:34+13:00   e7c399b281f3e038971cff1406a6246c
 sections/footer.liquid:
   development: 2018-01-12T08:58:55+13:00   7bf2dd836d90bcb41e66cc3d78bce6d0
 snippets/footer_area_blog.liquid:
@@ -53,9 +55,11 @@ snippets/footer_area_text.liquid:
   development: 2018-01-11T14:47:06+13:00   4e694db91699644cfcad42d9963cf342
 snippets/footer_credits.liquid:
   development: 2018-01-12T08:58:28+13:00   72e57e45d1626b91cf76ff2ce483d97a
+snippets/theme-fonts.liquid:
+  development: 2018-01-12T11:45:47+13:00   cf97a6efc16f148a399da6bca5804626
 snippets/theme-scripts.liquid:
   development: 2018-01-12T08:52:16+13:00   760353738c8e24811eb91e640bce6a7a
 snippets/theme-styles.liquid:
-  development: 2018-01-12T09:52:43+13:00   d36da13e1da75d06a75166398fd676dc
+  development: 2018-01-12T11:45:45+13:00   e07a262e081498d76764d54f2555163c
 templates/index.liquid:
   development: 2018-01-11T16:39:45+13:00   b94df6fe29be03b52d28c5bf069bda6d
