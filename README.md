@@ -14,20 +14,18 @@ You will need to BYO design, layout, and custom modules/sections/whatever. Is th
 - Shopify Settings Generator: [https://github.com/stewartknapman/shopify-settings-generator](https://github.com/stewartknapman/shopify-settings-generator)
 
 ### Shopify Theme Kit
-I recommend using Shopify's Theme Kit rather than the Theme Gem. This is what Shopify's own developers use, and has the ability to use multiple environments (i.e. development, staging, production, etc.).
+I recommend using Shopify's Theme Kit. This is what Shopify's own developers use, and has the ability to use multiple environments (i.e. development, staging, production, etc.).
 
 ### Inside SCSS
-I built a light weight SASS framework for my own needs. I like it. Don't want it? Don't worry, you can just remove the lines that look like this `@import '../../node_modules/inside-scss/src/inside';` in the main scss files (`_src/scss/`) and replace them with what ever you want.
+I built a light weight SASS framework for my own needs. I like it. Don't want it? Don't worry, you can just remove the lines that look like this `@import '../../node_modules/inside-scss/src/inside';` in the main scss files (`_src/scss/`) and replace them with the framework of your choice.
 
 ### Sass Importer
-I prefer to push my scss files to Shopify to be compiled. Yes, I know that Shopify's version of SASS is old and crappy, but that way I don't have to worry about [escaping any liquid](https://gist.github.com/stewartknapman/8346708). I also prefer to use `@import`. So I build a tool that just concats the scss files based on the import rules.
+I prefer to push my scss files to Shopify to be compiled. Yes, I know that Shopify's version of SASS is old, but that way I don't have to worry about [escaping any liquid](https://gist.github.com/stewartknapman/8346708). I also prefer to use `@import` to create small, manageable files. So I build a tool that just concats the scss files based on the import rules.
 
-Again, if you don't want to use my methods, I'm not your mother, go and rip it out and replace it with something that suits your own needs.
+Again, if you don't want to use this, I'm not your mother. Feel free to rip it out and replace it with something that suits your own needs.
 
 ### Shopify Settings Generator
-If you hadn't noticed I like building my own tools. This one allows me to keep theme settings in small, managable, bite-sized files, along with doing loops and other stuff that sucks.
-
-I think if at this point you don't want to use this, you might want to look at using a different theme, there are too many things here you don't agree with. But hey, do what ever you want to do, man.
+If you hadn't noticed I like building my own tools. This one allows me to keep theme settings in small, manageable, bite-sized files, along with doing cool things like loops and other stuff that sucks to write by hand.
 
 ## Commands
 
@@ -35,13 +33,15 @@ I think if at this point you don't want to use this, you might want to look at u
 npm run build
 ```
 
-_To do: more detail on how to run the build tasks._
+Simple.
+
+_To do: more detail on the individual build tasks._
 
 ## Important Notes
 
 ### Images
 
-I don't know what size images you need, you'll have to find the image tags and update the sizes based on your own needs.
+I don't know what image sizes you need, I've included some basic defaults but you'll have to find the image tags and update the sizes based on your own content needs.
 
 To make them easy to find I've included this comment tag: `{% comment [IMAGE] - update sizes for your own needs %}{% endcomment %}` with each image tag, so all you need to do is search your project for `[IMAGE]`.
 
@@ -51,11 +51,11 @@ Again, I don't know what you need, so I've left everything one column and full w
 
 However there is a grid system here, should you need it. Here are your options:
 
-- Use flexbox (or css grids if you can get away with being that bleeding edge)
+- Use flexbox or CSS grid if you can
 - Use the built in [sass grid mixins](https://github.com/stewartknapman/inside/#grids)
-- Use the built in [grid classes](https://github.com/stewartknapman/inside/#grids) (if you're old school/lazy)
+- Use the built in [grid classes](https://github.com/stewartknapman/inside/#grids) (if you're old school or strapped for time)
 
 ## TODO
 - Setup build tasks (autoprefixer)
-- JS structure needs a bit of work
-- svg icons with fallback (one include snippet file at the top of the body that defines the symbols, built from a folder of icons. <use> to use them. Include <title> for accessibility Fallback to text/emoji?)
+- JS structure needs a ~bit~ lot of work
+- svg icons ~with fallback (one include snippet file at the top of the body that defines the symbols, built from a folder of icons. <use> to use them. Include <title> for accessibility Fallback to text/emoji?)~
