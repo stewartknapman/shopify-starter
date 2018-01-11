@@ -4,15 +4,15 @@
   "description": "Starter Skeleton Theme for Shopify",
   "main": "theme/templates/index.liquid",
   "scripts": {
-    "build": "parallelshell 'npm run js:watch' 'npm run css:watch' 'npm run settings:watch'",
+    "build": "npm-run-all --parallel *:watch",
     "css:watch": "watch 'npm run css:build' _src/scss/",
-    "css:build": "parallelshell 'npm run css:core' 'npm run css:styleguide'",
+    "css:build": "npm-run-all --parallel css:core css:styleguide",
     "css:core": "sassimport _src/scss/styles.scss -o theme/assets/styles.scss.liquid",
     "css:styleguide": "sassimport _src/scss/styleguide.scss -o theme/assets/styleguide.scss.liquid",
     "js:watch": "watch 'npm run js:test' ./_src/js/ ./_tests/",
     "js:test": "mocha _tests/",
     "postjs:test": "npm run js:build",
-    "js:build": "parallelshell 'npm run js:core' 'npm run js:cart' 'npm run js:product' 'npm run js:polyfills' 'npm run js:translations'",
+    "js:build": "npm-run-all --parallel js:core js:cart js:product js:polyfills js:translations",
     "js:core": "browserify --debug _src/js/core.js > theme/assets/core.js && browserify _src/js/core.js | uglifyjs -c -m > theme/assets/core.min.js",
     "js:cart": "browserify --debug _src/js/cart.js > theme/assets/cart.js && browserify _src/js/cart.js | uglifyjs -c -m > theme/assets/cart.min.js",
     "js:product": "browserify --debug _src/js/product.js > theme/assets/product.js && browserify _src/js/product.js | uglifyjs -c -m > theme/assets/product.min.js",
@@ -32,18 +32,18 @@
   },
   "homepage": "https://github.com/stewartknapman/shopify-starter#readme",
   "dependencies": {
-    "inside-scss": "^1.0.0"
+    "inside-scss": "^1.0.4"
   },
   "devDependencies": {
-    "browserify": "^13.0.0",
+    "browserify": "^13.3.0",
     "chai": "^3.5.0",
-    "jsdom": "^9.4.1",
-    "jsdom-global": "^2.0.0",
+    "jsdom": "^9.12.0",
+    "jsdom-global": "^2.1.1",
     "mocha": "^2.5.3",
-    "parallelshell": "^2.0.0",
+    "npm-run-all": "^4.1.2",
     "sass-importer": "0.0.2",
     "shopify-settings-generator": "git+https://github.com/stewartknapman/shopify-settings-generator.git",
-    "uglify-js": "^2.6.2",
+    "uglify-js": "^2.8.29",
     "watch": "^0.17.1"
   }
 }
