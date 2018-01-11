@@ -4,22 +4,23 @@
   - https://www.html5rocks.com/en/tutorials/speed/script-loading/
 {% endcomment %}
 
-<link rel="preload" href="{{ 'core.min.js' | asset_url }}" as="script">
+<!-- <link rel="preload" href="{{ 'core.min.js' | asset_url }}" as="script">
 <link rel="preload" href="{{ 'translations.min.js' | asset_url }}" as="script">
 <link rel="preload" href="{{ 'cart.min.js' | asset_url }}" as="script">
-<link rel="preload" href="{{ 'product.min.js' | asset_url }}" as="script">
+<link rel="preload" href="{{ 'product.min.js' | asset_url }}" as="script"> -->
 
 <script>
   // Setup scripts
   var src,
     script;
   var scripts = [
-    '{{ 'core.min.js' | asset_url }}',
-    '{{ 'translations.min.js' | asset_url }}',
-    '{{ 'cart.min.js' | asset_url }}',
-    '{{ 'product.min.js' | asset_url }}'
+    // '{{ 'core.min.js' | asset_url }}',
+    // '{{ 'translations.min.js' | asset_url }}',
+    // '{{ 'cart.min.js' | asset_url }}',
+    // '{{ 'product.min.js' | asset_url }}'
+    '{{ 'render.js' | asset_url }}'
   ];
-  
+
   // Check for polyfills
   var supports = (
     !!window.getComputedStyle &&
@@ -29,7 +30,7 @@
   if (!supports) {
     scripts.unshift('{{ 'polyfills.min.js' | asset_url }}');
   }
-  
+
   // loop scripts and add them
   while (src = scripts.shift()) {
     script = document.createElement('script');
@@ -37,7 +38,7 @@
     script.src = src;
     document.head.appendChild(script);
   };
-  
+
   // Setup cart data
   window.Theme = window.Theme || {};
   Theme.cartJson = {{ cart | json }};

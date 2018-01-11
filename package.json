@@ -12,7 +12,8 @@
     "js:watch": "watch 'npm run js:test' ./_src/js/ ./_tests/",
     "js:test": "mocha _tests/",
     "postjs:test": "npm run js:build",
-    "js:build": "npm-run-all --parallel js:core js:cart js:product js:polyfills js:translations",
+    "js:build": "npm-run-all --parallel js:core js:cart js:product js:polyfills js:translations js:render",
+    "js:render": "browserify --debug _src/js/render.js > theme/assets/render.js",
     "js:core": "browserify --debug _src/js/core.js > theme/assets/core.js && browserify _src/js/core.js | uglifyjs -c -m > theme/assets/core.min.js",
     "js:cart": "browserify --debug _src/js/cart.js > theme/assets/cart.js && browserify _src/js/cart.js | uglifyjs -c -m > theme/assets/cart.min.js",
     "js:product": "browserify --debug _src/js/product.js > theme/assets/product.js && browserify _src/js/product.js | uglifyjs -c -m > theme/assets/product.min.js",
@@ -32,7 +33,8 @@
   },
   "homepage": "https://github.com/stewartknapman/shopify-starter#readme",
   "dependencies": {
-    "inside-scss": "^1.0.4"
+    "inside-scss": "^1.0.4",
+    "liquidjs": "^3.0.0"
   },
   "devDependencies": {
     "browserify": "^13.3.0",

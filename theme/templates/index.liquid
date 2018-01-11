@@ -1,1 +1,12 @@
 {{ content_for_index }}
+
+
+<script type="text/template" id="test" data-target="#test-target">
+{% raw %}
+  <h3>{{ name | capitalize | prepend: "Welcome to "}}</h3>
+{% endraw %}
+</script>
+
+<div id="test-target"></div>
+
+<button type="button" name="button" onclick="window.go()">Render</button>
