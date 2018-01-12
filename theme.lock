@@ -31,8 +31,12 @@ assets/translations.min.js.liquid:
   development: 2017-01-15T13:38:58+13:00   1816e805281a08c41cea8bc64f87e5a9
 config/settings_schema.json:
   development: 2016-03-28T15:13:59+13:00   39cb96037bcad8c14f1945b6a4892abc
+layout/gift_card.liquid:
+  development: 2018-01-12T11:57:17+13:00   873b91f6752d56245b9efd10c5ab9ede
+layout/password.liquid:
+  development: 2018-01-12T11:56:10+13:00   24cede6cb21fbef254dbdb77a130c987
 layout/styleguide.liquid:
-  development: 2018-01-12T09:07:35+13:00   728dd849c34d007434c3e24e44ed504e
+  development: 2018-01-12T11:57:47+13:00   84c0ee04e75df9e0622bb20dfc19640d
 layout/theme.liquid:
   development: 2018-01-12T11:45:34+13:00   e7c399b281f3e038971cff1406a6246c
 sections/footer.liquid:
@@ -60,6 +64,6 @@ snippets/theme-fonts.liquid:
 snippets/theme-scripts.liquid:
   development: 2018-01-12T08:52:16+13:00   760353738c8e24811eb91e640bce6a7a
 snippets/theme-styles.liquid:
-  development: 2018-01-12T11:45:45+13:00   e07a262e081498d76764d54f2555163c
+  development: 2018-01-12T11:52:16+13:00   5788c459844d6210da11f12f06da5729
 templates/index.liquid:
   development: 2018-01-11T16:39:45+13:00   b94df6fe29be03b52d28c5bf069bda6d
