@@ -1,3 +1,9 @@
+/*
+  Theme specific stylesheets
+  This stylesheet will be loaded asynchronously.
+  We've already loaded the base and header styles before this so no need to include them here
+*/
+
 @import 'theme/variables.scss';
 @import 'theme/variables-theme.scss';
 @import '../../node_modules/inside-scss/src/inside';

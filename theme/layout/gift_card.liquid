@@ -14,7 +14,9 @@
 
   <meta name="description" content="{{ 'gift_cards.issued.subtext' | t }}">
 
-  {% include 'theme-styles' giftcard: true %}
+  <link rel="preload" href="{{ 'gift-card.scss.css' | asset_url }}" as="style">
+  <link rel="stylesheet" href="{{ 'gift-card.scss.css' | asset_url }}">
+
   {% include 'theme-fonts' %}
   {% include 'theme-scripts' %}
 

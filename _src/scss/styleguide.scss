@@ -1,3 +1,9 @@
+/*
+  Styleguide stylesheets
+  This is only for styles specific to the Styleguide and is loaded asynchronously.
+  All base and theme styles will have been loaded before this, so no need to include them again
+*/
+
 @import 'theme/variables.scss';
 @import 'theme/variables-styleguide.scss';
 @import '../../node_modules/inside-scss/src/inside';
