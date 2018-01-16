@@ -6,8 +6,144 @@
   - styleguide
   - gift card
   - password
-  
+
+  This assumes you are using the Inside SCSS framework which is installed by default.
+  If you are not then you may remove these variables infavour of the ones you need for your chossen framework
+
 */
+
+/*
+  Global variables.
+  Currently set to Inside's defaults but are include here so they are easy to find an change.
+*/
+$include_classes: true;
+$include_fluid_type: true;
+$include_pretty_underlines: true;
+// Modules
+$include_grid: false; // Default is false to encorrage flexbox and/or css grids
+$include_type: true;
+$include_lists: true;
+$include_buttons: true;
+$include_tables: true;
+$include_tables_responsive: true;
+$include_hero: true;
+$include_code: false; // Does not match Inside's defaults because most Shopify themes won't need code blocks
+$include_embed: true;
+$include_figure_link_hover: true;
+$include_utilities: true;
+$include_breakpoint_sizes: true;
+
+/*
+  Breakpoints
+
+  These are default breakpoints, you should change them to match whatever your content and design needs.
+  You can add to, remove, or change whatever breakpoints you need by altering the `$breakpoint_sizes` array.
+  Note: we use an array of arrays and not a map because that would break if compiled on Shopify's servers.
+*/
+
+// xs is implied by whatever is less than sm
+$breakpoint_sm:     37.5em;  // 600px @ 16px
+$breakpoint_md:     60em;    // 960px @ 16px
+$breakpoint_lg:     75em;    // 1200px @ 16px
+$breakpoint_xl:     93.75em; // 1500px @ 16px
+
+// The max-height in which a table is no longer collapsed for mobile
+$breakpoint_tables: $breakpoint_sm;
+
+$breakpoint_sizes: (xs false) (sm $breakpoint_sm) (md $breakpoint_md) (lg $breakpoint_lg) (xl $breakpoint_xl);
+
+/*
+  Type
+*/
+
+// Heading and component sizes
+$font_size_base:  1em;
+$font_size_xxl:   2.5em;             // ~ 40px
+$font_size_xl:    2em;               // ~ 32px
+$font_size_lg:    1.5em;             // ~ 24px and used inside hero objects
+$font_size_md:    1.25em;            // ~ 20px
+$font_size_sm:    $font_size_base;   // ~ 16px
+$font_size_xs:    0.8125em;          // ~ 13px
+$font_size_forms: $font_size_xs;
+
+// Base sizes and heights
+$line_height_base:  1.5;
+$line_height_xxl:   1.1;
+$line_height_xl:    1.2;
+$line_height_lg:    1.3;
+$line_height_md:    1.4;
+$line_height_sm:    $line_height_base;
+$line_height_xs:    1.6;
+
+// Fluid type sizes
+$fluid_type_min_vw:     20em;
+$fluid_type_max_vw:     87.5em;
+$font_size_min_value:   $font_size_base;
+$font_size_max_value:   1.5em;
+$line_height_min_value: 1.3;
+$line_height_max_value: 1.5;
+
+$max_reading_length: 35em;
+
+// Font families
+$font_family_serif:      Georgia, "Times New Roman", Times, serif;
+$font_family_sans_serif: "Helvetica Neue", Helvetica, Arial, sans-serif;
+$font_family_monospaced: Consolas, "Lucida Console", Monaco, monospace; // Only used if the code module is turned on
+
+$font_family_body:      $font_family_sans_serif;
+$font_family_headings:  $font_family_sans_serif;
+$font_family_code:      $font_family_monospaced; // Only used if the code module is turned on
+$font_family_pullquote: $font_family_headings;
+$font_family_button:    $font_family_body;
+
+// Font weights
+$font_weight_base:      300;
+$font_weight_bold:      600;
+$font_weight_headings:  500;
+$font_weight_pullquote: 300;
+$font_weight_button:    $font_weight_base;
+
+// Font styles
+$font_style_pullquote: italic;
+
+// Underline thickness
+$underline_weight: 1px;
+$underline_position: 95%;
+
+/*
+  Grids
+  GRIDS ARE TURNED OFF BY DEFAULT
+  So these variables are not used. They only exist here incase you turn them on.
+
+  Note: you can change what col classes exist by modifying the `$col_sizes` array.
+  Because classes are generated for each of these you should only include the ones you actually use/need.
+  We use an array of arrays and not a map because that would break if compiled on Shopify's servers.
+*/
+
+$container_width_fluid: 100%;
+$container_width_xs: 95%;
+$container_width_sm: 95%;
+$container_width_md: 90%;
+$container_width_lg: 85%;
+$container_width_xl: 80%;
+
+$container_sizes: (xs $container_width_xs) (sm $container_width_sm) (md $container_width_md) (lg $container_width_lg) (xl $container_width_xl);
+
+// Set to a value like 55em to constrain the max width of a container
+$container_max_width: false;
+
+$gutter_horizontal: 1rem;
+$gutter_vertical: 1em;
+
+$grid_gutter_xs: 0.25em;
+$grid_gutter_sm: 0.5em;
+$grid_gutter_md: 0.75em;
+$grid_gutter_lg: $gutter_vertical;
+$grid_gutter_xl: $grid_gutter_lg;
+
+$grid_gutter_sizes: (xs $grid_gutter_xs) (sm $grid_gutter_sm) (md $grid_gutter_md) (lg $grid_gutter_lg) (xl $grid_gutter_xl);
+
+$col_sizes: (5 5%) (10 10%) (15 15%) (20 20%) (25 25%) (30 30%) (40 40%) (50 50%) (60 60%) (70 70%) (75 75%) (80 80%) (85 85%) (90 90%) (95 95%) (100 100%) (quarter 25%) (half 50%) (three-quarters 75%) (full 100%) (one-third 33.333%) (one-sixth 16.666%) (two-thirds 66.666%);
 /*
 
   Variables that are only specific to the gift-card.scss.css file

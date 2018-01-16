@@ -3,3 +3,5 @@
   Variables that are only specific to the styleguide.scss.css file
 
 */
+
+$include_base: false; // Already loaded with core so we don't need to include it twice
