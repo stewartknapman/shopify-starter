@@ -20,7 +20,7 @@ assets/product.min.js:
 assets/render.js:
   development: 2018-01-11T16:40:22+13:00   f2974d5dd2f8c3e7051ff838ff23d455
 assets/render.min.js:
-  development: 2018-01-11T15:56:51+13:00   2d3da1a9a004b4391a5f02e49aee4c0b
+  development: 2018-01-16T13:55:01+13:00
 assets/styleguide.scss.liquid:
   development: 2018-01-11T15:01:50+13:00   2e70d97b13d9309f41436058e29237e4
 assets/styles.scss.liquid:
@@ -29,18 +29,28 @@ assets/translations.js.liquid:
   development: 2017-01-15T10:25:24+13:00   ae8b02e7e071b72e5a5298c8c4074c6e
 assets/translations.min.js.liquid:
   development: 2017-01-15T13:38:58+13:00   1816e805281a08c41cea8bc64f87e5a9
+config/settings_data.json:
+  development: 2016-12-10T19:03:47+13:00   1641ebc126c6cc0b0f8c3fbac9f3c0c5
 config/settings_schema.json:
   development: 2016-03-28T15:13:59+13:00   39cb96037bcad8c14f1945b6a4892abc
 layout/gift_card.liquid:
-  development: 2018-01-12T11:57:17+13:00   873b91f6752d56245b9efd10c5ab9ede
+  development: 2018-01-16T13:54:58+13:00   6c4fca32a60c7ae5ca560d58c7f9ce2f
 layout/password.liquid:
-  development: 2018-01-12T11:56:10+13:00   24cede6cb21fbef254dbdb77a130c987
+  development: 2018-01-16T13:54:56+13:00   a172a685c2684f2c540c2518d7f5fa4e
 layout/styleguide.liquid:
-  development: 2018-01-12T11:57:47+13:00   84c0ee04e75df9e0622bb20dfc19640d
+  development: 2018-01-16T13:54:52+13:00   165ea4627095dd27c66e53534a6e606c
 layout/theme.liquid:
-  development: 2018-01-12T11:45:34+13:00   e7c399b281f3e038971cff1406a6246c
+  development: 2018-01-16T13:54:54+13:00   e1184176c1a383c4d904b308f17d9853
+locales/en.default.json:
+  development: 2018-01-16T13:54:51+13:00   e158294b19c8db449e093dbbc4dc27ba
 sections/footer.liquid:
   development: 2018-01-12T08:58:55+13:00   7bf2dd836d90bcb41e66cc3d78bce6d0
+sections/header.liquid:
+  development: 2017-01-15T11:37:11+13:00   16041a2d85188124ac8d5f07afdb5752
+snippets/cart_count.liquid:
+  development: 2017-01-15T12:46:09+13:00   f78efc2f448228b5dc908b4adccf2dc2
+snippets/contact_form.liquid:
+  development: 2016-12-10T15:41:30+13:00
 snippets/footer_area_blog.liquid:
   development: 2018-01-11T14:48:18+13:00   2590c5fc2dac6984b11cc6a471d3f6ba
 snippets/footer_area_heading.liquid:
@@ -59,11 +69,53 @@ snippets/footer_area_text.liquid:
   development: 2018-01-11T14:47:06+13:00   4e694db91699644cfcad42d9963cf342
 snippets/footer_credits.liquid:
   development: 2018-01-12T08:58:28+13:00   72e57e45d1626b91cf76ff2ce483d97a
+snippets/newsletter_form.liquid:
+  development: 2016-12-10T15:41:20+13:00
 snippets/theme-fonts.liquid:
   development: 2018-01-12T11:45:47+13:00   cf97a6efc16f148a399da6bca5804626
 snippets/theme-scripts.liquid:
   development: 2018-01-12T08:52:16+13:00   760353738c8e24811eb91e640bce6a7a
 snippets/theme-styles.liquid:
   development: 2018-01-12T11:52:16+13:00   5788c459844d6210da11f12f06da5729
+templates/404.liquid:
+  development: 2016-12-10T12:01:40+13:00
+templates/article.liquid:
+  development: 2016-12-10T12:01:44+13:00
+templates/blog.liquid:
+  development: 2016-03-20T12:15:37+13:00
+templates/cart.liquid:
+  development: 2016-03-20T12:15:37+13:00
+templates/collection.liquid:
+  development: 2016-12-10T12:01:45+13:00   06eb4b8f6a2e4e699e23c636ce02c2dc
+templates/customers/account.liquid:
+  development: 2016-12-10T12:01:42+13:00
+templates/customers/activate_account.liquid:
+  development: 2016-12-10T12:01:39+13:00
+templates/customers/addresses.liquid:
+  development: 2016-12-10T12:01:40+13:00
+templates/customers/login.liquid:
+  development: 2016-12-10T12:01:39+13:00
+templates/customers/order.liquid:
+  development: 2016-12-10T12:01:41+13:00
+templates/customers/register.liquid:
+  development: 2016-12-10T12:01:51+13:00
+templates/customers/reset_password.liquid:
+  development: 2016-12-10T12:01:41+13:00
+templates/gift_card.liquid:
+  development: 2016-12-10T12:06:02+13:00   49dd2771890b52c782c8f67f325f1e90
 templates/index.liquid:
   development: 2018-01-11T16:39:45+13:00   b94df6fe29be03b52d28c5bf069bda6d
+templates/index.styleguide.liquid:
+  development: 2016-12-10T15:19:36+13:00   d53d5e2c45c14175c188e6e9efd9f455
+templates/list-collections.liquid:
+  development: 2016-12-10T12:01:51+13:00
+templates/page.contact.liquid:
+  development: 2016-03-20T12:15:37+13:00
+templates/page.liquid:
+  development: 2016-03-20T12:15:37+13:00
+templates/password.liquid:
+  development: 2016-12-10T12:06:28+13:00   6765e20225709efe11aae6cc3eb4ba06
+templates/product.liquid:
+  development: 2017-04-26T15:18:18+12:00
+templates/search.liquid:
+  development: 2016-12-10T12:01:50+13:00   bf58d8b2c6afad3e11bc5cd7d2042cda

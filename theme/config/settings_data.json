@@ -1,0 +1,63 @@
+{
+  "current": {
+    "checkout_header_image": "",
+    "checkout_use_storefront_logo": false,
+    "checkout_logo_image": "",
+    "checkout_logo_position": "left",
+    "checkout_logo_size": "medium",
+    "checkout_body_background_image": "",
+    "checkout_body_background_color": "#fff",
+    "checkout_input_background_color_mode": "white",
+    "checkout_sidebar_background_image": "",
+    "checkout_sidebar_background_color": "#fafafa",
+    "checkout_heading_font": "Helvetica Neue",
+    "checkout_body_font": "Helvetica Neue",
+    "checkout_accent_color": "#1990C6",
+    "checkout_button_color": "#1990C6",
+    "checkout_error_color": "#ff6d6d",
+    "sections": {
+      "header": {
+        "type": "header",
+        "settings": {}
+      },
+      "footer": {
+        "type": "footer",
+        "blocks": {
+          "1481328600349": {
+            "type": "area",
+            "settings": {
+              "heading": "Heading",
+              "text": "<p>This is test text<\/p>",
+              "link_list": "footer",
+              "blog": "news",
+              "image": "shopify:\/\/shop_images\/giphy.gif",
+              "image_url": "shopify:\/\/pages\/frontpage",
+              "image_caption": "Hello"
+            }
+          },
+          "1481349799230": {
+            "type": "area",
+            "settings": {
+              "heading": "Moose",
+              "text": "<p>Second area<\/p>",
+              "link_list": "main-menu",
+              "blog": "",
+              "image": "",
+              "image_url": "",
+              "image_caption": ""
+            }
+          }
+        },
+        "block_order": [
+          "1481328600349",
+          "1481349799230"
+        ],
+        "settings": {
+          "blog_list_limit": "5",
+          "show_blog_list_excerpt": true
+        }
+      }
+    },
+    "content_for_index": []
+  }
+}
