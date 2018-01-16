@@ -42,7 +42,7 @@ layout/gift_card.liquid:
 layout/password.liquid:
   development: 2018-01-16T14:08:33+13:00   02da6a07eba6230aaafaaf591afe786d
 layout/styleguide.liquid:
-  development: 2018-01-16T13:54:52+13:00   165ea4627095dd27c66e53534a6e606c
+  development: 2018-01-16T14:10:18+13:00   8aa06ccae16897386dcce7a4342ea9f3
 layout/theme.liquid:
   development: 2018-01-16T13:54:54+13:00   e1184176c1a383c4d904b308f17d9853
 locales/en.default.json:
@@ -51,6 +51,8 @@ sections/footer.liquid:
   development: 2018-01-12T08:58:55+13:00   7bf2dd836d90bcb41e66cc3d78bce6d0
 sections/header.liquid:
   development: 2017-01-15T11:37:11+13:00   16041a2d85188124ac8d5f07afdb5752
+sections/styleguide.liquid:
+  development: 2018-01-16T14:10:18+13:00
 snippets/cart_count.liquid:
   development: 2017-01-15T12:46:09+13:00   f78efc2f448228b5dc908b4adccf2dc2
 snippets/contact_form.liquid:
