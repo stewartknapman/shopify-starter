@@ -9,6 +9,10 @@ assets/core.min.js:
   development: 2018-01-11T15:56:27+13:00   e20ef3cf1a3847943ba4e2ca00b5e509
 assets/core.scss.liquid:
   development: 2018-01-12T11:30:41+13:00   2e70d97b13d9309f41436058e29237e4
+assets/gift-card.scss.liquid:
+  development: 2018-01-16T14:08:32+13:00   6344131cefc9a58e5b0967190ea9bfa4
+assets/password.scss.liquid:
+  development: 2018-01-16T14:08:34+13:00   617966715121fe1a61ac22ab736f1f94
 assets/polyfills.js:
   development: 2018-01-11T15:56:25+13:00   3e3f36d7b907756c29c02ecbceeedc22
 assets/polyfills.min.js:
@@ -34,9 +38,9 @@ config/settings_data.json:
 config/settings_schema.json:
   development: 2016-03-28T15:13:59+13:00   39cb96037bcad8c14f1945b6a4892abc
 layout/gift_card.liquid:
-  development: 2018-01-16T13:54:58+13:00   6c4fca32a60c7ae5ca560d58c7f9ce2f
+  development: 2018-01-16T14:08:33+13:00   366401d85b749481997084b09f39498f
 layout/password.liquid:
-  development: 2018-01-16T13:54:56+13:00   a172a685c2684f2c540c2518d7f5fa4e
+  development: 2018-01-16T14:08:33+13:00   02da6a07eba6230aaafaaf591afe786d
 layout/styleguide.liquid:
   development: 2018-01-16T13:54:52+13:00   165ea4627095dd27c66e53534a6e606c
 layout/theme.liquid:
@@ -76,7 +80,7 @@ snippets/theme-fonts.liquid:
 snippets/theme-scripts.liquid:
   development: 2018-01-12T08:52:16+13:00   760353738c8e24811eb91e640bce6a7a
 snippets/theme-styles.liquid:
-  development: 2018-01-12T11:52:16+13:00   5788c459844d6210da11f12f06da5729
+  development: 2018-01-16T14:08:33+13:00   ba236e2263319ac4a9edd4e6b6b008c5
 templates/404.liquid:
   development: 2016-12-10T12:01:40+13:00
 templates/article.liquid:
