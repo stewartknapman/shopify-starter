@@ -1,11 +1,18 @@
 <!DOCTYPE html>
-<html class="no-js" lang="en" dir="ltr">
+<!--[if IE 9]> <html class="ie9 no-js" lang="{{ shop.locale }}" dir="ltr"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--> <html class="no-js" lang="{{ shop.locale }}" dir="ltr"> <!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="canonical" href="{{ canonical_url }}">
+  <link rel="shortcut icon" href="{{ 'favicon.png' | asset_img_url: '32x32' }}" type="image/png">
 
   <title>{{ page_title | escape }}</title>
+
+  {% if page_description %}
+    <meta name="description" content="{{ page_description | escape }}">
+  {% endif %}
 
   {% include 'theme-styles' %}
   {% include 'theme-fonts' %}
