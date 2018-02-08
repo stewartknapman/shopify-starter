@@ -92,7 +92,7 @@ templates/blog.liquid:
 templates/cart.liquid:
   development: 2016-03-20T12:15:37+13:00
 templates/collection.liquid:
-  development: 2016-12-10T12:01:45+13:00   06eb4b8f6a2e4e699e23c636ce02c2dc
+  development: 2018-02-09T10:00:26+13:00   fbbd4afc78b16bb6e8e7b5ad08467a4b
 templates/customers/account.liquid:
   development: 2016-12-10T12:01:42+13:00
 templates/customers/activate_account.liquid:
@@ -122,6 +122,6 @@ templates/page.liquid:
 templates/password.liquid:
   development: 2016-12-10T12:06:28+13:00   6765e20225709efe11aae6cc3eb4ba06
 templates/product.liquid:
-  development: 2017-04-26T15:18:18+12:00
+  development: 2018-02-09T09:43:28+13:00   f1926a992a7f863d2fbee55595785f3a
 templates/search.liquid:
   development: 2016-12-10T12:01:50+13:00   bf58d8b2c6afad3e11bc5cd7d2042cda
